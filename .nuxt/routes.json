@@ -1,0 +1,44 @@
+[
+  {
+    "name": "index___en",
+    "path": "/en",
+    "component": "D:\\\\OSPanel\\\\domains\\\\foodo\\\\foodo-biz\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_dd8bd132"
+  },
+  {
+    "name": "login___ru",
+    "path": "/login",
+    "component": "D:\\\\OSPanel\\\\domains\\\\foodo\\\\foodo-biz\\\\pages\\\\login.vue",
+    "chunkName": "pages/login",
+    "_name": "_5ae1ba7e"
+  },
+  {
+    "name": "register___ru",
+    "path": "/register",
+    "component": "D:\\\\OSPanel\\\\domains\\\\foodo\\\\foodo-biz\\\\pages\\\\register.vue",
+    "chunkName": "pages/register",
+    "_name": "_7ed334c4"
+  },
+  {
+    "name": "login___en",
+    "path": "/en/login",
+    "component": "D:\\\\OSPanel\\\\domains\\\\foodo\\\\foodo-biz\\\\pages\\\\login.vue",
+    "chunkName": "pages/login",
+    "_name": "_5ae1ba7e"
+  },
+  {
+    "name": "register___en",
+    "path": "/en/register",
+    "component": "D:\\\\OSPanel\\\\domains\\\\foodo\\\\foodo-biz\\\\pages\\\\register.vue",
+    "chunkName": "pages/register",
+    "_name": "_7ed334c4"
+  },
+  {
+    "name": "index___ru",
+    "path": "/",
+    "component": "D:\\\\OSPanel\\\\domains\\\\foodo\\\\foodo-biz\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "_name": "_dd8bd132"
+  }
+]
