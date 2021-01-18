@@ -16,7 +16,6 @@
 <script>
 export default {
   name: 'Register',
-  layout: 'auth/auth_layout',
-  auth: false,
+  layout: 'Auth',
 }
 </script>

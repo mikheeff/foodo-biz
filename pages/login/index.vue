@@ -9,6 +9,7 @@
 import UserAuthForm from '@/components/Auth/Login/UserAuthForm'
 export default {
   name: 'Login',
+  layout: 'Auth',
   components: { UserAuthForm },
 }
 </script>
