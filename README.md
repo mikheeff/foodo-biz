@@ -33,116 +33,115 @@ $ npm run generate
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
 
-File structure
-Создано: Евгений
-Последнее обновление: янв. 15, 2021
-.nuxt
+##File structure <br />
+
+.nuxt<br />
 Системная директория проекта с компилированными данными.
 
-assets
+assets<br />
 Директория для файлов участвующих в разработке проекта. 
 Именование структуры внутри папок должна быть в точности таким же как в других директориях. 
+<br /><br />
+scss<br />
+<br /><br />
+{theme_name}<br />
+components (стили компонентов, если они вынесены в файл)<br />
+layouts<br />
+pages<br />
+modules<br />
+sections (Основная структура проекта разбита на секции.)<br /><br />
 
-scss
+layouts (стили шаблонов)<br />
+auth (Страницы авторизации, регистрации и восстановления пароля)<br />
+default (Простые информационные и промо страницы)<br />
+cabinet (Основной шаблон личного кабинета зарегистрированного пользователя)<br /><br />
 
-{theme_name}
-components (стили компонентов, если они вынесены в файл)
-layouts
-pages
-modules
-sections (Основная структура проекта разбита на секции.)
+pages (стили отдельных страниц)<br />
+Папка названия страницы (login) → Внутренние папки и файлы, где название папки равно назван ию страницы, а index.vue - точка входа на страницу. <br /><br />
 
-layouts (стили шаблонов)
-auth (Страницы авторизации, регистрации и восстановления пароля)
-default (Простые информационные и промо страницы)
-cabinet (Основной шаблон личного кабинета зарегистрированного пользователя)
+modules (стили модулей)<br />
+Папка модуля по названию модуля → Файлы модуля<br /><br />
 
-pages (стили отдельных страниц)
-Папка названия страницы (login) → Внутренние папки и файлы, где название папки равно назван ию страницы, а index.vue - точка входа на страницу. 
+variables (Файлы SCSS переменных используемых в теме проекта)<br />
+mods (Файлы css классов-модификаторов)<br />
+wrapper (Основные компоненты )<br /><br />
 
-modules (стили модулей)
-Папка модуля по названию модуля → Файлы модуля
+components<br />
 
-variables (Файлы SCSS переменных используемых в теме проекта)
-mods (Файлы css классов-модификаторов)
-wrapper (Основные компоненты )
-
-components
-
-layouts
-auth
-default
-cabinet
-
-
-pages
-Папка → Index + дочерние страницы
+layouts<br />
+auth<br />
+default<br />
+cabinet<br />
 
 
-modules
----
+pages<br />
+Папка → Index + дочерние страницы<br /><br />
 
 
-sections
-ContentSection
-LeftSidebarSection
-RightSidebarSection
+modules<br />
+---<br /><br />
 
 
-components
-Inputs
-Images
-Selects
-Buttons
-Forms
-Pagination
-Sidebar
-Users
-…
+sections<br />
+ContentSection<br />
+LeftSidebarSection<br />
+RightSidebarSection<br /><br />
 
 
-data
-StaticDataCenter
+components<br />
+Inputs<br />
+Images<br />
+Selects<br />
+Buttons<br />
+Forms<br />
+Pagination<br />
+Sidebar<br />
+Users<br />
+…<br /><br />
 
 
-content
----
+data<br />
+StaticDataCenter<br /><br />
 
-dist
-Системная директория проекта с компилированными данными.
 
-lang
-Файлы локализации.
-Именование файлов локализации имеет вид символьного пода страны в формате en-US.js
+content<br />
+---<br /><br />
 
-en-US.js
+dist<br />
+Системная директория проекта с компилированными данными.<br /><br />
 
-ru-RU.js
+lang<br />
+Файлы локализации.<br />
+Именование файлов локализации имеет вид символьного пода страны в формате en-US.js<br />
 
-layouts
-auth
-default
-cabinet
+en-US.js<br />
 
-Managers (Mixins)
+ru-RU.js<br /><br />
 
-middleware
----
+layouts<br />
+auth<br />
+default<br />
+cabinet<br />
 
-pages
-Папка названия страницы (login) → Внутренние папки и файлы, где название папки равно назван ию страницы, а index.vue - точка входа на страницу. 
+Managers (Mixins)<br /><br />
 
-plugins
-Файлы плагинов проекта
+middleware<br />
+---<br /><br />
 
-static 
-Статичные  файлы проекта
+pages<br />
+Папка названия страницы (login) → Внутренние папки и файлы, где название папки равно назван ию страницы, а index.vue - точка входа на страницу. <br /><br />
 
-icons
-images
+plugins<br />
+Файлы плагинов проекта<br /><br />
 
-store (Vuex модули)
-Файл vuex модуля
+static <br />
+Статичные  файлы проекта<br /><br />
 
-test (Автотесты)
----
+icons<br />
+images<br />
+
+store (Vuex модули)<br />
+Файл vuex модуля<br /><br />
+
+test (Автотесты)<br />
+---<br />
