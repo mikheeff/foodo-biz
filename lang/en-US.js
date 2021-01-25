@@ -7,4 +7,4 @@ export default {
   // Registration
   registration: 'Registration',
   register: 'Register',
-}
+};
