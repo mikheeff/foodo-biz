@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="icon">
-  <symbol id="next" viewBox="0 0 24 24">
-    <path d="M18.587 7.293L12 13.88 5.413 7.293 3.999 8.707 12 16.707 20.001 8.707z" transform="translate(-242 -1122) translate(80 894) translate(0 228) translate(163) rotate(-90 12 12)"/>
-  </symbol>
-
-  <symbol id="prev" viewBox="0 0 24 24">
-    <path d="M18.587 7.293L12 13.88 5.413 7.293 3.999 8.707 12 16.707 20.001 8.707z" transform="translate(-188 -1122) translate(80 894) translate(0 228) translate(107) rotate(90 12 12)"/>
-  </symbol>
-</svg>

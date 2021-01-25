@@ -5,16 +5,28 @@ module.exports = {
     node: true,
   },
   parserOptions: {
-    parser: 'babel-eslint',
+    ecmaVersion: 2020,
+    parser: '@typescript-eslint/parser',
   },
   extends: [
-    '@nuxtjs',
-    'prettier',
-    'prettier/vue',
-    'plugin:prettier/recommended',
-    'plugin:nuxt/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:vue/recommended',
+    '@nuxtjs/eslint-config-typescript',
   ],
-  plugins: ['prettier'],
+  plugins: ['vue'],
   // add your custom rules here
-  rules: {},
-}
+  rules: {
+    semi: [2, 'always'],
+    'no-undef': 'off',
+    'comma-dangle': ['error', 'always-multiline'],
+  },
+  overrides: [
+    {
+      files: ['*.vue'],
+      rules: {
+        indent: 'off',
+        'vue/script-indent': ['error', 2, { baseIndent: 1 }],
+      },
+    },
+  ],
+};
