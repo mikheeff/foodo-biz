@@ -1,4 +1,6 @@
-export default {
+import { NuxtConfig } from '@nuxt/types';
+
+const config: NuxtConfig = {
   ssr: false,
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
@@ -41,6 +43,12 @@ export default {
     '@nuxt/content',
     'nuxt-i18n',
     ['nuxt-buefy', { css: false }],
+    [
+      'nuxt-typed-router',
+      {
+        filePath: './models/__routes.ts',
+      },
+    ],
   ],
 
   i18n: {
@@ -49,9 +57,10 @@ export default {
     lazy: true,
     vueI18nLoader: true,
     locales: [
-      { code: 'ru', iso: 'ru-RU', file: 'ru-RU.js', name: 'Русский' },
-      { code: 'en', iso: 'en-US', file: 'en-US.js', name: 'English' },
+      { code: 'ru', iso: 'ru-RU', file: 'ru-RU.ts', name: 'Русский' },
+      { code: 'en', iso: 'en-US', file: 'en-US.ts', name: 'English' },
     ],
+    strategy: 'no_prefix',
   },
 
   loading: {
@@ -88,7 +97,7 @@ export default {
      */
     extend (config, ctx) {
       // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
+      if (ctx.isDev && ctx.isClient && config.module) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue|ts)$/,
@@ -102,3 +111,5 @@ export default {
     },
   },
 };
+
+export default config;

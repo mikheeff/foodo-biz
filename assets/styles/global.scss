@@ -8,9 +8,11 @@ $family-primary: $family-serif;
 // Import bulma styles
 @import '~bulma/sass/utilities/_all.sass';
 @import '~bulma/sass/base/_all.sass';
+@import '~bulma/sass/form/_all.sass';
 
 // Import buefy styles
-//@import '~buefy/src/scss/buefy';
+@import '~buefy/src/scss/utils/_all.scss';
+@import '~buefy/src/scss/components/_switch.scss';
 
 @import '~assets/styles/generic';
 
