@@ -14,29 +14,29 @@
         </p>
       </section>
       <section>
-        <b-field :label="$t('emailAddress')">
+        <BField :label="$t('emailAddress')">
           <b-input
             v-model="email"
             :placeholder="$t('emailAddressPlaceholder')"
           />
-        </b-field>
-        <b-field :label="$t('password')">
-          <b-input
+        </BField>
+        <BField :label="$t('password')">
+          <BInput
             v-model="password"
             :placeholder="$t('passwordPlaceholder')"
           />
-        </b-field>
-        <b-field>
-          <b-switch>{{ $t('rememberMe') }}</b-switch>
-        </b-field>
+        </BField>
+        <BField>
+          <BSwitch>{{ $t('rememberMe') }}</BSwitch>
+        </BField>
       </section>
       <section>
-        <a href="/">
+        <NuxtLink :to="$routesNames.resetPassword">
           <BaseIcon icon-name="write">
             <ArrowRightIcon />
           </BaseIcon>
           {{ $t('resetPassword') }}
-        </a>
+        </NuxtLink>
       </section>
     </div>
   </div>

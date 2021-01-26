@@ -51,6 +51,8 @@ const config: NuxtConfig = {
     ],
   ],
 
+  plugins: ['~nuxt-typed-router.ts'],
+
   i18n: {
     defaultLocale: 'ru',
     langDir: 'lang/',
