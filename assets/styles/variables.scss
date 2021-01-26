@@ -1,0 +1,44 @@
+// Colors
+$gray: #585967;
+$gray-108: #6c6d7b;
+
+$aqua: #12b8c6;
+$dark-aqua: #0e98a4;
+
+//typography
+
+// line-heights
+$lh-1: 56px;
+$lh-2: 38px;
+
+// font-sizes
+$head-1: 42px;
+$head-2: 27px;
+
+// font-weights
+$font-weight-extra-light: 200;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 700;
+$font-weight-extra-bold: 800;
+
+// letter-spacings
+$letter-spacing-1: -0.4px;
+$letter-spacing-2: -0.6px;
+
+// headline
+$head-font-list:
+  (
+    fontSize: $head-1,
+    lineHeight: $lh-1,
+    fontWeight: $font-weight-bold,
+    letterSpacing: $letter-spacing-1,
+  ),
+  (
+    fontSize: $head-2,
+    lineHeight: $lh-2,
+    fontWeight: $font-weight-semi-bold,
+    letterSpacing: $letter-spacing-2,
+  );

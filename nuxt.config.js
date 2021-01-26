@@ -1,5 +1,3 @@
-const path = require('path')
-
 export default {
   ssr: false,
 
@@ -11,7 +9,13 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Manrope&display=swap',
+      },
+    ],
   },
 
   router: {
@@ -19,7 +23,7 @@ export default {
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: [],
+  css: ['@/assets/styles/global.scss'],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -36,7 +40,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxt/content',
     'nuxt-i18n',
-    'nuxt-buefy',
+    ['nuxt-buefy', { css: false }],
   ],
 
   i18n: {
@@ -76,7 +80,7 @@ export default {
 
   // Content module configuration (https://go.nuxtjs.dev/config-content)
   content: {},
-  
+
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
     /*

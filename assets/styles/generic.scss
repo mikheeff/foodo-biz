@@ -1,0 +1,27 @@
+@import '~assets/styles/mixins';
+@import '~assets/styles/variables';
+
+body {
+  color: $gray;
+}
+
+.title {
+  color: $gray;
+  margin-bottom: 14px;
+}
+
+.subtitle {
+  color: $gray-108;
+  font-size: 19px;
+  line-height: 28px;
+  letter-spacing: -0.1px;
+  font-weight: $font-weight-medium;
+}
+
+
+@each $font in $head-font-list {
+  $i: index($head-font-list, $font);
+  .is-size-#{$i} {
+    @include font-size($i);
+  }
+}

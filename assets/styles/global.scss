@@ -1,0 +1,16 @@
+// Import Bulma's core
+@import '~bulma/sass/utilities/_all';
+
+// Fonts
+$family-serif: 'Manrope', serif;
+$family-primary: $family-serif;
+
+// Import bulma styles
+@import '~bulma/sass/utilities/_all.sass';
+@import '~bulma/sass/base/_all.sass';
+
+// Import buefy styles
+//@import '~buefy/src/scss/buefy';
+
+@import '~assets/styles/generic';
+
