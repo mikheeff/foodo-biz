@@ -77,10 +77,10 @@
 </script>
 
 <style lang="scss" scoped>
-@import '~~/assets/styles/utils/variables';
+@import '~assets/styles/utils/variables';
 
   .login-page {
-    padding: 140px 70px;
+    padding: $building-unit-x10 $building-unit-x5;
     width: 100%;
 
     &-container {
@@ -88,15 +88,15 @@
     }
 
     .app-name {
-      color: $dark-aqua;
+      color: $aqua-dark;
     }
 
     .login-subtitle {
-      margin-bottom: 42px;
+      margin-bottom: $building-unit-x3;
     }
 
     .login-page-form {
-      margin-bottom: 21px;
+      margin-bottom: $building-unit-x1_5;
     }
 
     .is-enter-button {
@@ -105,11 +105,11 @@
     }
 
     .password-field {
-      margin-bottom: 28px;
+      margin-bottom: $building-unit-x2;
     }
 
     .remember-me-field {
-      margin-bottom: 42px;
+      margin-bottom: $building-unit-x3;
     }
   }
 </style>

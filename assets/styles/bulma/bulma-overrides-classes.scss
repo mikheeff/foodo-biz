@@ -1,3 +1,15 @@
+.button {
+  padding: $building-unit $building-unit-x2;
+  @include font-size(4);
+  font-weight: $font-weight-semi-bold;
+  border-radius: 14px;
+  height: 56px;
+
+  &.is-primary {
+    background: linear-gradient(107deg, $aqua 25%, $aqua-dark 73%);
+  }
+}
+
 .columns {
   margin-top: 0;
   margin-bottom: 0;
@@ -11,4 +23,12 @@
 
 .column {
   padding: 0 12px;
+}
+
+.label {
+  @include font-size(5);
+
+  &:not(:last-child) {
+    margin-bottom: $building-unit-x0_5;
+  }
 }

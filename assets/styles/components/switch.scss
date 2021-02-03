@@ -1,5 +1,21 @@
+$switch-label-padding-left: 16px;
+
 .switch {
-  .control-label {
-    padding-left: 16px;
+  &:not(.has-left-label) {
+    .control-label {
+      padding-left: $switch-label-padding-left;
+    }
+  }
+
+  input[type=checkbox] {
+    &:focus, &:active {
+      + .check {
+        box-shadow: none;
+      }
+
+      &:checked + .check {
+        box-shadow: none;
+      }
+    }
   }
 }

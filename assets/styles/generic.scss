@@ -5,12 +5,12 @@ body {
 
 a {
   position: relative;
-  color: $dark-aqua;
+  color: $aqua-dark;
   //@include font-size(4);
 
   &:hover {
-    color: $dark-aqua;;
-    border-bottom: 1px dashed $dark-aqua;
+    color: $aqua-dark;;
+    border-bottom: 1px dashed $aqua-dark;
   }
 
   &.is-icon {
@@ -24,23 +24,7 @@ a {
   }
 }
 
-.button {
-  padding: 14px 28px;
-  @include font-size(4);
-  font-weight: $font-weight-semi-bold;
-  border-radius: 14px;
-  height: 56px;
-
-  &.is-primary {
-    background: linear-gradient(107deg, $aqua 25%, $dark-aqua 73%);
-  }
-}
-
 .title {
-  color: $gray;
+  color: $gray-dark;
   margin-bottom: 14px;
-}
-
-.subtitle {
-  color: $gray-108;
 }
