@@ -1,8 +1,39 @@
-@import '~assets/styles/mixins';
-@import '~assets/styles/variables';
-
 body {
   color: $gray;
+  @include font-size(4);
+}
+
+a {
+  position: relative;
+  color: $dark-aqua;
+  //@include font-size(4);
+
+  &:hover {
+    color: $dark-aqua;;
+    border-bottom: 1px dashed $dark-aqua;
+  }
+
+  &.is-icon {
+    margin-left: $link-icon-size + $link-icon-margin-right;
+  }
+
+  svg {
+    @include absolute-y-center;
+    right: 100%;
+    margin-right: $link-icon-margin-right;
+  }
+}
+
+.button {
+  padding: 14px 28px;
+  @include font-size(4);
+  font-weight: $font-weight-semi-bold;
+  border-radius: 14px;
+  height: 56px;
+
+  &.is-primary {
+    background: linear-gradient(107deg, $aqua 25%, $dark-aqua 73%);
+  }
 }
 
 .title {
@@ -12,16 +43,4 @@ body {
 
 .subtitle {
   color: $gray-108;
-  font-size: 19px;
-  line-height: 28px;
-  letter-spacing: -0.1px;
-  font-weight: $font-weight-medium;
-}
-
-
-@each $font in $head-font-list {
-  $i: index($head-font-list, $font);
-  .is-size-#{$i} {
-    @include font-size($i);
-  }
 }

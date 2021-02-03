@@ -1,42 +1,63 @@
 <template>
   <div class="login-page">
     <div class="login-page-container">
-      <section>
+      <section class="login-page-header">
         <i18n
           path="welcomeTitle"
           tag="h2"
           class="title is-size-1"
         >
+          <br>
           <span class="app-name">{{ $t('foodo') }}</span>
         </i18n>
         <p class="subtitle login-subtitle">
           {{ $t('welcomeText') }}
         </p>
       </section>
-      <section>
-        <BField :label="$t('emailAddress')">
+      <section class="login-page-form">
+        <BField
+          class="login-field"
+          :label="$t('emailAddress')"
+        >
           <b-input
             v-model="email"
             :placeholder="$t('emailAddressPlaceholder')"
           />
         </BField>
-        <BField :label="$t('password')">
+        <BField
+          class="password-field"
+          :label="$t('password')"
+        >
           <BInput
             v-model="password"
             :placeholder="$t('passwordPlaceholder')"
           />
         </BField>
-        <BField>
+        <BField class="remember-me-field">
           <BSwitch>{{ $t('rememberMe') }}</BSwitch>
         </BField>
-      </section>
-      <section>
-        <NuxtLink :to="$routesNames.resetPassword">
-          <BaseIcon icon-name="write">
+        <NuxtLink
+          class="is-icon"
+          :to="$routesNames.resetPassword"
+        >
+          <BaseIcon>
             <ArrowRightIcon />
           </BaseIcon>
           {{ $t('resetPassword') }}
         </NuxtLink>
+      </section>
+      <section class="login-page-footer columns">
+        <div class="column">
+          <button class="button is-primary is-enter-button">
+            {{ $t('enter') }}
+          </button>
+        </div>
+        <div class="column">
+          <span>{{ $t('noAccountQuestion') }}</span>
+          <NuxtLink :to="$routesNames.index">
+            {{ $t('register') }}
+          </NuxtLink>
+        </div>
       </section>
     </div>
   </div>
@@ -56,7 +77,7 @@
 </script>
 
 <style lang="scss" scoped>
-@import '~assets/styles/variables';
+@import '~~/assets/styles/utils/variables';
 
   .login-page {
     padding: 140px 70px;
@@ -71,6 +92,23 @@
     }
 
     .login-subtitle {
+      margin-bottom: 42px;
+    }
+
+    .login-page-form {
+      margin-bottom: 21px;
+    }
+
+    .is-enter-button {
+      min-width: 292px;
+      margin-right: 10px;
+    }
+
+    .password-field {
+      margin-bottom: 28px;
+    }
+
+    .remember-me-field {
       margin-bottom: 42px;
     }
   }

@@ -1,0 +1,34 @@
+
+//mixins
+
+@mixin absolute-y-center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin absolute-x-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin absolute-xy-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// fonts
+@mixin font-size($sizeIndex, $list: $head-font-list) {
+  $font: nth($list, $sizeIndex);
+  font-size: map-get($font, fontSize) !important;
+  line-height: map-get($font, lineHeight);
+  font-weight: map-get($font, fontWeight);
+  letter-spacing: map-get($font, letterSpacing);
+}
+
+
+
+

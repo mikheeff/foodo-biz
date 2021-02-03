@@ -10,10 +10,14 @@ $dark-aqua: #0e98a4;
 // line-heights
 $lh-1: 56px;
 $lh-2: 38px;
+$lh-3: 38px;
+$lh-4: 28px;
 
 // font-sizes
 $head-1: 42px;
 $head-2: 27px;
+$head-3: 27px;
+$head-4: 19px;
 
 // font-weights
 $font-weight-extra-light: 200;
@@ -27,6 +31,8 @@ $font-weight-extra-bold: 800;
 // letter-spacings
 $letter-spacing-1: -0.4px;
 $letter-spacing-2: -0.6px;
+$letter-spacing-3: -0.6px;
+$letter-spacing-4: -0.1px;
 
 // headline
 $head-font-list:
@@ -41,4 +47,23 @@ $head-font-list:
     lineHeight: $lh-2,
     fontWeight: $font-weight-semi-bold,
     letterSpacing: $letter-spacing-2,
+  ),
+  (
+    fontSize: $head-3,
+    lineHeight: $lh-3,
+    fontWeight: $font-weight-semi-bold,
+    letterSpacing: $letter-spacing-3,
+  ),
+  (
+    fontSize: $head-4,
+    lineHeight: $lh-4,
+    fontWeight: $font-weight-medium,
+    letterSpacing: $letter-spacing-4,
   );
+
+// transitions
+$transition-default: .2s;
+
+//links
+$link-icon-size: 16px;
+$link-icon-margin-right: 7px;
