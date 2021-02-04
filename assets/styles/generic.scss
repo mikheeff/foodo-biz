@@ -3,10 +3,12 @@ body {
   @include font-size(4);
 }
 
+.page {
+  background-color: $gray-249;
+}
+
 a {
   position: relative;
-  color: $aqua-dark;
-  //@include font-size(4);
 
   &:hover {
     color: $aqua-dark;;

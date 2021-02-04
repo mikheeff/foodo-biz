@@ -1,8 +1,7 @@
 .button {
-  padding: $building-unit $building-unit-x2;
   @include font-size(4);
   font-weight: $font-weight-semi-bold;
-  border-radius: 14px;
+  border-radius: $border-radius;
   height: 56px;
 
   &.is-primary {
@@ -31,4 +30,8 @@
   &:not(:last-child) {
     margin-bottom: $building-unit-x0_5;
   }
+}
+
+.input {
+  @include font-size(4);
 }

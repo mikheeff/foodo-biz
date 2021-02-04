@@ -1,7 +1,14 @@
 // Colors
+$white: #ffffff;
+$black: #000000;
+
 $gray: #6c6d7b;
 $gray-dark: #585967;
 $gray-light: #a1a2aa;
+$gray-161: #a1a2aa;
+$gray-190: #bebec7;
+$gray-193: #c1c1c8;
+$gray-249: #f9f9fc;
 
 $aqua: #12b8c6;
 $aqua-dark: #0e98a4;
@@ -13,8 +20,14 @@ $building-unit-x1_5: $building-unit * 1.5; // 21px
 $building-unit-x2: $building-unit * 2; // 28px
 $building-unit-x2_5: $building-unit * 2.5; // 35px
 $building-unit-x3: $building-unit * 3; // 42px
+$building-unit-x4: $building-unit * 4; // 56px
 $building-unit-x5: $building-unit * 5; // 70px
 $building-unit-x10: $building-unit * 10; // 140px
+
+// utils
+$border-radius: $building-unit;
+$border-radius-small: $building-unit_x0_5;
+$default-icon-size: 16px;
 
 //typography
 

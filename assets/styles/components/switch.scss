@@ -11,6 +11,10 @@ $switch-label-padding-left: 16px;
     &:focus, &:active {
       + .check {
         box-shadow: none;
+
+        &.is-elastic:before {
+          transform: none;
+        }
       }
 
       &:checked + .check {

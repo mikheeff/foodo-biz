@@ -1,5 +1,5 @@
 <template>
-  <div class="login-page">
+  <div class="page login-page">
     <div class="login-page-container">
       <section class="login-page-header">
         <i18n
@@ -19,8 +19,9 @@
           class="login-field"
           :label="$t('emailAddress')"
         >
-          <b-input
+          <FInput
             v-model="email"
+            type="email"
             :placeholder="$t('emailAddressPlaceholder')"
           />
         </BField>
@@ -28,8 +29,12 @@
           class="password-field"
           :label="$t('password')"
         >
-          <BInput
+          <FInput
             v-model="password"
+            type="password"
+            class="has-icon-right"
+            :icon-right="IconType.EYE_ICON"
+            :is-icon-right-clickable="true"
             :placeholder="$t('passwordPlaceholder')"
           />
         </BField>
@@ -65,12 +70,14 @@
 
 <script lang="ts">
   import Vue from 'vue';
+  import { IconType } from '~/models/enums/IconType';
 
   export default Vue.extend({
-    data () {
+    data() {
       return {
         email: '',
         password: '',
+        IconType,
       };
     },
   });
