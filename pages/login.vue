@@ -15,16 +15,30 @@
         </p>
       </section>
       <section class="login-page-form">
-        <BField
+        <FField
           class="login-field"
+          :is-danger="$v.email.$error"
           :label="$t('emailAddress')"
         >
           <FInput
             v-model="email"
             type="email"
+            :is-danger="$v.email.$error"
             :placeholder="$t('emailAddressPlaceholder')"
+            @blur="$v.email.$touch()"
           />
-        </BField>
+          <template
+            v-if="$v.email.$error"
+            slot="message"
+          >
+            <p v-if="!$v.email.required">
+              {{ $t('required') }}
+            </p>
+            <p v-if="!$v.email.email">
+              {{ $t('invalidEmail') }}
+            </p>
+          </template>
+        </FField>
         <BField
           class="password-field"
           :label="$t('password')"
@@ -70,6 +84,7 @@
 
 <script lang="ts">
   import Vue from 'vue';
+  import { email, required } from 'vuelidate/lib/validators';
   import { IconType } from '~/models/enums/IconType';
 
   export default Vue.extend({
@@ -79,6 +94,12 @@
         password: '',
         IconType,
       };
+    },
+    validations: {
+      email: {
+        required,
+        email,
+      },
     },
   });
 </script>

@@ -51,7 +51,10 @@ const config: NuxtConfig = {
     ],
   ],
 
-  plugins: ['~nuxt-typed-router.ts'],
+  plugins: [
+    '~/plugins/nuxt-typed-router.ts',
+    '~/plugins/Vuelidate.ts',
+  ],
 
   i18n: {
     defaultLocale: 'ru',

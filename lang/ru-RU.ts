@@ -1,4 +1,7 @@
 export default {
+  // Common
+  required: 'Заполните поле',
+  invalidEmail: 'Неверный формат адреса эл. почты',
   // Login
   welcomeTitle: 'Добро пожаловать {0} на {1}',
   foodo: 'Foodo',

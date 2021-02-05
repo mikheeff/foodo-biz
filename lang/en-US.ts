@@ -1,4 +1,7 @@
 export default {
+  // Common
+  required: 'Fill the field',
+  invalidEmail: 'Invalid email',
   // Login
   welcomeTitle: 'Welcome to {0}',
   foodo: 'Foodo',

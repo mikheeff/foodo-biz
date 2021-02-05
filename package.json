@@ -23,7 +23,8 @@
     "nuxt": "^2.14.6",
     "nuxt-buefy": "^0.4.4",
     "nuxt-i18n": "^6.15.4",
-    "nuxt-typed-router": "^0.2.15"
+    "nuxt-typed-router": "^0.2.15",
+    "vuelidate": "^0.7.6"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.12",

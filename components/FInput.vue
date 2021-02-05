@@ -4,6 +4,7 @@
       v-if="type !== 'textarea'"
       ref="input"
       class="input f-input"
+      :class="{'is-danger': isDanger}"
       :type="newType"
       :autocomplete="autocomplete"
       :value="value"
@@ -17,6 +18,7 @@
       v-else
       ref="textarea"
       class="textarea"
+      :class="{'is-danger': isDanger}"
       :value="value"
       :placeholder="placeholder"
       v-bind="$attrs"
@@ -72,6 +74,10 @@
         default: '',
       },
       isIconRightClickable: {
+        type: Boolean,
+        default: false,
+      },
+      isDanger: {
         type: Boolean,
         default: false,
       },
