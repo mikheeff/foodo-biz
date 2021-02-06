@@ -154,6 +154,7 @@
       user-select: none;
 
       &.is-clickable {
+        color: $aqua-dark;
         pointer-events: auto;
         cursor: pointer;
       }

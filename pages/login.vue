@@ -48,7 +48,7 @@
             type="password"
             class="has-icon-right"
             :icon-right="IconType.EYE_ICON"
-            :is-icon-right-clickable="true"
+            :is-icon-right-clickable="Boolean(password)"
             :placeholder="$t('passwordPlaceholder')"
           />
         </BField>
