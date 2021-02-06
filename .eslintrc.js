@@ -17,6 +17,7 @@ module.exports = {
   // add your custom rules here
   rules: {
     semi: [2, 'always'],
+    'space-before-function-paren': ['error', 'never'],
     'no-undef': 'off',
     'comma-dangle': ['error', 'always-multiline'],
   },

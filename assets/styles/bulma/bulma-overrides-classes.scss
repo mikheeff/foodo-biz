@@ -1,0 +1,50 @@
+$input-danger-border-color: rgba(238, 69, 64, 0.21);
+$input-danger-box-shadow-color: rgba(238, 69, 64, 0.42);
+
+.button {
+  @include font-size(4);
+  font-weight: $font-weight-semi-bold;
+  border-radius: $border-radius;
+  height: 56px;
+
+  &.is-primary {
+    background: linear-gradient(107deg, $aqua 25%, $aqua-dark 73%);
+  }
+}
+
+.columns {
+  margin-top: 0;
+  margin-bottom: 0;
+
+  &:last-child,
+  &:not(:last-child) {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.column {
+  padding: 0 12px;
+}
+
+.label {
+  @include font-size(5);
+
+  &:not(:last-child) {
+    margin-bottom: $building-unit-x0_5;
+  }
+}
+
+.input {
+  @include font-size(4);
+
+  &.is-danger {
+    border-color: $input-danger-border-color;
+    box-shadow: $input-focus-box-shadow-size $input-danger-box-shadow-color;
+  }
+}
+
+.help {
+  margin-top: $building-unit-x0_5;
+  @include font-size(5);
+}

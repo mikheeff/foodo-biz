@@ -1,6 +1,6 @@
-const path = require('path')
+import { NuxtConfig } from '@nuxt/types';
 
-export default {
+const config: NuxtConfig = {
   ssr: false,
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
@@ -11,7 +11,13 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Manrope&display=swap',
+      },
+    ],
   },
 
   router: {
@@ -19,7 +25,7 @@ export default {
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: [],
+  css: ['@/assets/styles/global.scss'],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -36,7 +42,18 @@ export default {
     '@nuxtjs/axios',
     '@nuxt/content',
     'nuxt-i18n',
-    'nuxt-buefy',
+    ['nuxt-buefy', { css: false }],
+    [
+      'nuxt-typed-router',
+      {
+        filePath: './models/__routes.ts',
+      },
+    ],
+  ],
+
+  plugins: [
+    '~/plugins/nuxt-typed-router.ts',
+    '~/plugins/Vuelidate.ts',
   ],
 
   i18n: {
@@ -45,9 +62,10 @@ export default {
     lazy: true,
     vueI18nLoader: true,
     locales: [
-      { code: 'ru', iso: 'ru-RU', file: 'ru-RU.js', name: 'Русский' },
-      { code: 'en', iso: 'en-US', file: 'en-US.js', name: 'English' },
+      { code: 'ru', iso: 'ru-RU', file: 'ru-RU.ts', name: 'Русский' },
+      { code: 'en', iso: 'en-US', file: 'en-US.ts', name: 'English' },
     ],
+    strategy: 'no_prefix',
   },
 
   loading: {
@@ -76,7 +94,7 @@ export default {
 
   // Content module configuration (https://go.nuxtjs.dev/config-content)
   content: {},
-  
+
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
     /*
@@ -84,7 +102,7 @@ export default {
      */
     extend (config, ctx) {
       // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
+      if (ctx.isDev && ctx.isClient && config.module) {
         config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue|ts)$/,
@@ -98,3 +116,5 @@ export default {
     },
   },
 };
+
+export default config;

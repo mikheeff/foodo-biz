@@ -1,0 +1,32 @@
+body {
+  color: $gray;
+  @include font-size(4);
+}
+
+.page {
+  background-color: $gray-249;
+}
+
+a {
+  position: relative;
+
+  &:hover {
+    color: $aqua-dark;;
+    border-bottom: 1px dashed $aqua-dark;
+  }
+
+  &.is-icon {
+    margin-left: $link-icon-size + $link-icon-margin-right;
+  }
+
+  svg {
+    @include absolute-y-center;
+    right: 100%;
+    margin-right: $link-icon-margin-right;
+  }
+}
+
+.title {
+  color: $gray-dark;
+  margin-bottom: 14px;
+}

@@ -1,0 +1,26 @@
+// Project utils
+@import '~assets/styles/utils/mixins';
+@import '~assets/styles/utils/variables';
+@import '~assets/styles/utils/typography';
+
+// bulma overriding vars
+@import '~assets/styles/bulma/bulma-overrides-variables';
+
+// Import bulma styles
+@import '~bulma/sass/utilities/_all';
+@import '~bulma/sass/base/_all';
+@import '~bulma/sass/form/_all';
+@import '~bulma/sass/grid/_all';
+@import '~bulma/sass/elements/button';
+
+// Import buefy styles
+@import '~buefy/src/scss/utils/_all';
+@import '~buefy/src/scss/components/_switch';
+
+// project styles
+@import '~assets/styles/generic';
+@import '~assets/styles/components/_all';
+
+// bulma overriding classes
+@import '~assets/styles/bulma/bulma-overrides-classes';
+

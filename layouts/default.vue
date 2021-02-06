@@ -1,7 +1,9 @@
 <template>
   <div id="app" class="app">
-    <Sidebar />
-    <Nuxt />
+    <div class="view">
+      <Sidebar />
+      <Nuxt />
+    </div>
   </div>
 </template>
 
@@ -11,3 +13,16 @@
   export default Vue.extend({
   });
 </script>
+
+<style lang="scss" scoped>
+
+  .app {
+    display: flex;
+    min-height: 100vh;
+  }
+
+  .view {
+    display: flex;
+    width: 100%;
+  }
+</style>

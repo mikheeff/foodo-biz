@@ -1,0 +1,6 @@
+@each $font in $head-font-list {
+  $i: index($head-font-list, $font);
+  .is-size-#{$i} {
+    @include font-size($i);
+  }
+}

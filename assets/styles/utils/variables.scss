@@ -1,0 +1,103 @@
+// Colors
+$white: #ffffff;
+$black: #000000;
+
+$gray: #6c6d7b;
+$gray-dark: #585967;
+$gray-light: #a1a2aa;
+$gray-161: #a1a2aa;
+$gray-190: #bebec7;
+$gray-193: #c1c1c8;
+$gray-249: #f9f9fc;
+$red: #ee4540;
+
+$aqua: #12b8c6;
+$aqua-dark: #0e98a4;
+
+// Building Units
+$building-unit: 14px;
+$building-unit-x0_5: $building-unit / 2; // 7px
+$building-unit-x1_5: $building-unit * 1.5; // 21px
+$building-unit-x2: $building-unit * 2; // 28px
+$building-unit-x2_5: $building-unit * 2.5; // 35px
+$building-unit-x3: $building-unit * 3; // 42px
+$building-unit-x4: $building-unit * 4; // 56px
+$building-unit-x5: $building-unit * 5; // 70px
+$building-unit-x10: $building-unit * 10; // 140px
+
+// utils
+$border-radius: $building-unit;
+$border-radius-small: $building-unit_x0_5;
+$default-icon-size: 16px;
+
+//typography
+
+// line-heights
+$lh-1: 56px;
+$lh-2: 38px;
+$lh-3: 38px;
+$lh-4: 28px;
+$lh-5: 24px;
+
+// font-sizes
+$head-1: 42px;
+$head-2: 27px;
+$head-3: 27px;
+$head-4: 19px;
+$head-5: 17px;
+
+// font-weights
+$font-weight-extra-light: 200;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 700;
+$font-weight-extra-bold: 800;
+
+// letter-spacings
+$letter-spacing-1: -0.4px;
+$letter-spacing-2: -0.6px;
+$letter-spacing-3: -0.6px;
+$letter-spacing-4: -0.1px;
+$letter-spacing-5: -0.4px;
+
+// headline
+$head-font-list:
+  (
+    fontSize: $head-1,
+    lineHeight: $lh-1,
+    fontWeight: $font-weight-bold,
+    letterSpacing: $letter-spacing-1,
+  ),
+  (
+    fontSize: $head-2,
+    lineHeight: $lh-2,
+    fontWeight: $font-weight-semi-bold,
+    letterSpacing: $letter-spacing-2,
+  ),
+  (
+    fontSize: $head-3,
+    lineHeight: $lh-3,
+    fontWeight: $font-weight-semi-bold,
+    letterSpacing: $letter-spacing-3,
+  ),
+  (
+    fontSize: $head-4,
+    lineHeight: $lh-4,
+    fontWeight: $font-weight-medium,
+    letterSpacing: $letter-spacing-4,
+  ),
+  (
+    fontSize: $head-5,
+    lineHeight: $lh-5,
+    fontWeight: $font-weight-medium,
+    letterSpacing: $letter-spacing-5,
+  );
+
+// transitions
+$transition-default: .2s;
+
+//links
+$link-icon-size: 16px;
+$link-icon-margin-right: 7px;
