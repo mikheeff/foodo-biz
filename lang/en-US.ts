@@ -22,4 +22,6 @@ export default {
   resetPasswordSubtitle2: 'used during registration',
   notRememberEmail: 'Forgot your email address?',
   contactSupport: 'Contact our support',
+  resetPasswordSuccessTitle: 'Success!',
+  resetPasswordSuccessSubtitle: 'A temporary password has been sent to your email address. Don\'t forget to check your Spam folder.',
 };

@@ -25,6 +25,7 @@
             type="email"
             :is-danger="$v.email.$error"
             :placeholder="$t('emailAddressPlaceholder')"
+            @keydown.native.enter="signIn"
             @blur="$v.email.$touch()"
           />
           <template
@@ -39,19 +40,31 @@
             </p>
           </template>
         </FField>
-        <BField
+        <FField
           class="password-field"
+          :is-danger="$v.password.$error"
           :label="$t('password')"
         >
           <FInput
             v-model="password"
             type="password"
             class="has-icon-right"
+            :is-danger="$v.password.$error"
             :icon-right="IconType.EYE_ICON"
             :is-icon-right-clickable="Boolean(password)"
             :placeholder="$t('passwordPlaceholder')"
+            @keydown.native.enter="signIn"
+            @blur="$v.password.$touch()"
           />
-        </BField>
+          <template
+            v-if="$v.password.$error"
+            slot="message"
+          >
+            <p v-if="!$v.password.required">
+              {{ $t('required') }}
+            </p>
+          </template>
+        </FField>
         <BField class="remember-me-field">
           <BSwitch>{{ $t('rememberMe') }}</BSwitch>
         </BField>
@@ -67,13 +80,17 @@
       </section>
       <section class="login-page-footer columns">
         <div class="column">
-          <button class="button is-primary is-auth-button is-login-button">
+          <button
+            class="button is-primary is-auth-button is-login-button"
+            :disabled="$v.$anyError"
+            @click="signIn"
+          >
             {{ $t('enter') }}
           </button>
         </div>
         <div class="column">
           <p>{{ $t('noAccountQuestion') }}</p>
-          <NuxtLink :to="$routesNames.index">
+          <NuxtLink :to="$routesNames.home">
             {{ $t('register') }}
           </NuxtLink>
         </div>
@@ -96,10 +113,24 @@
         IconType,
       };
     },
+    methods: {
+      signIn() {
+        this.$v.$touch();
+
+        if (this.$v.$invalid) {
+          return;
+        }
+
+        this.$router.push(this.$routesNames.home);
+      },
+    },
     validations: {
       email: {
         required,
         email,
+      },
+      password: {
+        required,
       },
     },
   });

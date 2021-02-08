@@ -22,4 +22,6 @@ export default {
   resetPasswordSubtitle2: 'использованный при регистрации',
   notRememberEmail: 'Не помните адрес электронной почты?',
   contactSupport: 'Написать в тех.поддержку',
+  resetPasswordSuccessTitle: 'Успешно!',
+  resetPasswordSuccessSubtitle: 'На ваш электронный адрес был отправлен временный пароль. Не забудьте проверить папку "Спам".',
 };

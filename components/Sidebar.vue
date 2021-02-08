@@ -21,7 +21,7 @@
     .logo {
       height: 54px;
       width: 54px;
-      background: url('~assets/logo.svg');
+      background: url('~assets/icons/logo.svg');
     }
   }
 </style>

@@ -1,16 +1,19 @@
 <template>
   <div class="page auth-page reset-password-page">
-    <div class="auth-page-container">
+    <NuxtLink
+      class="is-breadcrumb is-icon"
+      :to="$routesNames.login"
+    >
+      <BaseIcon>
+        <ArrowLeftIcon />
+      </BaseIcon>
+      {{ $t('back') }}
+    </NuxtLink>
+    <div
+      v-if="!isSucceed"
+      class="auth-page-container"
+    >
       <section class="auth-page-header">
-        <NuxtLink
-          class="is-breadcrumb is-icon"
-          :to="$routesNames.login"
-        >
-          <BaseIcon>
-            <ArrowLeftIcon />
-          </BaseIcon>
-          {{ $t('back') }}
-        </NuxtLink>
         <h2 class="title is-size-1">
           {{ $t('resetPasswordTitle') }}
         </h2>
@@ -32,6 +35,7 @@
             type="email"
             :is-danger="$v.email.$error"
             :placeholder="$t('emailAddressPlaceholder')"
+            @keydown.native.enter="handleResetPassword"
             @blur="$v.email.$touch()"
           />
           <template
@@ -48,16 +52,34 @@
         </FField>
       </section>
       <section class="auth-page-footer reset-password-page-footer">
-        <button class="button is-primary is-auth-button is-reset-password-button">
+        <button
+          :disabled="$v.email.$error"
+          class="button is-primary is-auth-button is-reset-password-button"
+          @click="handleResetPassword"
+        >
           {{ $t('resetPassword') }}
         </button>
         <div class="reset-password-footer-info">
           <p>{{ $t('notRememberEmail') }}</p>
-          <NuxtLink :to="$routesNames.index">
+          <NuxtLink :to="$routesNames.home">
             {{ $t('contactSupport') }}
           </NuxtLink>
         </div>
       </section>
+    </div>
+    <div
+      v-else
+      class="auth-page-container is-success"
+    >
+      <section class="auth-page-header">
+        <h2 class="title is-size-1">
+          {{ $t('resetPasswordSuccessTitle') }}
+        </h2>
+        <p class="subtitle auth-subtitle">
+          {{ $t('resetPasswordSuccessSubtitle') }}
+        </p>
+      </section>
+      <div class="email-success-icon" />
     </div>
   </div>
 </template>
@@ -71,7 +93,19 @@
     data() {
       return {
         email: '',
+        isSucceed: false,
       };
+    },
+    methods: {
+      handleResetPassword() {
+        this.$v.$touch();
+
+        if (this.$v.$invalid) {
+          return;
+        }
+
+        this.isSucceed = true;
+      },
     },
     validations: {
       email: {
@@ -83,7 +117,9 @@
 </script>
 
 <style lang="scss" scoped>
-@import '~assets/styles/utils/variables';
+  @import '~assets/styles/utils/variables';
+  $email-success-icon-width: 254px;
+  $email-success-icon-height: 188px;
 
   .reset-password-page {
     &-form {
@@ -97,6 +133,18 @@
 
     .is-reset-password-button {
       margin-bottom: $building-unit-x1-5;
+    }
+
+    .is-success {
+      .auth-page-header {
+        margin-bottom: $building-unit-x7;
+      }
+
+      .email-success-icon {
+        background: url('~assets/icons/illustrations-email.svg');
+        width: $email-success-icon-width;
+        height: $email-success-icon-height;
+      }
     }
   }
 </style>
