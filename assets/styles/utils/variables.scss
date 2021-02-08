@@ -5,9 +5,11 @@ $black: #000000;
 $gray: #6c6d7b;
 $gray-dark: #585967;
 $gray-light: #a1a2aa;
-$gray-161: #a1a2aa;
 $gray-190: #bebec7;
 $gray-193: #c1c1c8;
+$gray-211: #d3d3da;
+$gray-231: #e7e7ec;
+$gray-239: #efeff3;
 $gray-249: #f9f9fc;
 $red: #ee4540;
 
@@ -29,6 +31,7 @@ $building-unit-x10: $building-unit * 10; // 140px
 $border-radius: $building-unit;
 $border-radius-small: $building-unit_x0_5;
 $default-icon-size: 16px;
+$login-container-width: 530px;
 
 //typography
 

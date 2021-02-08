@@ -1,7 +1,7 @@
 <template>
-  <div class="page login-page">
-    <div class="login-page-container">
-      <section class="login-page-header">
+  <div class="page auth-page login-page">
+    <div class="auth-page-container">
+      <section class="auth-page-header">
         <i18n
           path="welcomeTitle"
           tag="h2"
@@ -10,13 +10,13 @@
           <br>
           <span class="app-name">{{ $t('foodo') }}</span>
         </i18n>
-        <p class="subtitle login-subtitle">
+        <p class="subtitle">
           {{ $t('welcomeText') }}
         </p>
       </section>
-      <section class="login-page-form">
+      <section class="auth-page-form">
         <FField
-          class="login-field"
+          class="email-field"
           :is-danger="$v.email.$error"
           :label="$t('emailAddress')"
         >
@@ -67,12 +67,12 @@
       </section>
       <section class="login-page-footer columns">
         <div class="column">
-          <button class="button is-primary is-enter-button">
+          <button class="button is-primary is-auth-button is-login-button">
             {{ $t('enter') }}
           </button>
         </div>
         <div class="column">
-          <span>{{ $t('noAccountQuestion') }}</span>
+          <p>{{ $t('noAccountQuestion') }}</p>
           <NuxtLink :to="$routesNames.index">
             {{ $t('register') }}
           </NuxtLink>
@@ -88,6 +88,7 @@
   import { IconType } from '~/models/enums/IconType';
 
   export default Vue.extend({
+    name: 'Login',
     data() {
       return {
         email: '',
@@ -107,29 +108,12 @@
 <style lang="scss" scoped>
 @import '~assets/styles/utils/variables';
 
-  .login-page {
-    padding: $building-unit-x10 $building-unit-x5;
-    width: 100%;
+$login-button-margin-right: 10px;
 
-    &-container {
-      max-width: 530px;
-    }
+  .login-page {
 
     .app-name {
       color: $aqua-dark;
-    }
-
-    .login-subtitle {
-      margin-bottom: $building-unit-x3;
-    }
-
-    .login-page-form {
-      margin-bottom: $building-unit-x1_5;
-    }
-
-    .is-enter-button {
-      min-width: 292px;
-      margin-right: 10px;
     }
 
     .password-field {
@@ -138,6 +122,10 @@
 
     .remember-me-field {
       margin-bottom: $building-unit-x3;
+    }
+
+    .is-login-button {
+      margin-right: $login-button-margin-right;
     }
   }
 </style>

@@ -1,14 +1,39 @@
 $input-danger-border-color: rgba(238, 69, 64, 0.21);
 $input-danger-box-shadow-color: rgba(238, 69, 64, 0.42);
 
+$button-primary-gradient: linear-gradient(123deg, $aqua 23%, $aqua-dark 75%);
+$button-letter-spacing: -0.2px;
+
 .button {
   @include font-size(4);
+  letter-spacing: $button-letter-spacing;
+  transition: background $transition-default !important;
   font-weight: $font-weight-semi-bold;
-  border-radius: $border-radius;
-  height: 56px;
+  height: $building-unit-x4;
+  background-color: $gray-231;
+  border: none;
+
+  &:hover {
+    background-color: $gray-239;
+  }
+
+  &:active {
+    background-color: $gray-211;
+  }
 
   &.is-primary {
-    background: linear-gradient(107deg, $aqua 25%, $aqua-dark 73%);
+    background: $button-primary-gradient;
+
+    &:hover {
+      // todo: find a way to fix transition
+      background: linear-gradient(to bottom, rgba(249, 249, 252, 0.42), rgba(249, 249, 252, 0.42)),
+      $button-primary-gradient;
+    }
+
+    &:active {
+      background: linear-gradient(to bottom, rgba(88, 89, 103, 0.14), rgba(88, 89, 103, 0.14)),
+      $button-primary-gradient;
+    }
   }
 }
 
