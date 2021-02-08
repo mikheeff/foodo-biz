@@ -2,15 +2,16 @@ export default {
   // Common
   required: 'Заполните поле',
   invalidEmail: 'Неверный формат адреса эл. почты',
+  password: 'Пароль',
   emailAddress: 'Адрес электронной почты',
   emailAddressPlaceholder: 'например, jamesgrant@gmail.com',
   resetPassword: 'Восстановить пароль',
   back: 'Назад',
-  // Login
   welcomeTitle: 'Добро пожаловать {0} на {1}',
   foodo: 'Foodo',
+  foodoUrl: 'foodo.ru',
+  // Login
   welcomeText: 'Пожалуйста, войдите под своей учётной записью, используя ваш адрес электронной почты и пароль.',
-  password: 'Пароль',
   passwordPlaceholder: 'Введите пароль',
   rememberMe: 'Оставаться в системе',
   enter: 'Войти',
@@ -24,4 +25,18 @@ export default {
   contactSupport: 'Написать в тех.поддержку',
   resetPasswordSuccessTitle: 'Успешно!',
   resetPasswordSuccessSubtitle: 'На ваш электронный адрес был отправлен временный пароль. Не забудьте проверить папку "Спам".',
+  // Sign up
+  signUpSubtitle: 'Откройте новые возможности для гибкого',
+  signUpSubtitle2: 'управления вашей кухней!',
+  signUpPasswordPlaceholder: 'Придумайте пароль',
+  signUpConfirmPasswordLabel: 'Подтвердите пароль',
+  signUpConfirmPasswordPlaceholder: 'Придумайте пароль',
+  signUpConfirmPasswordHelp: 'Придумайте сложный пароль для безопасности вашего профиля. Рекомендуем использовать заглавные и прописные буквы, а также цифры и символы (.,!#$%)',
+  signUpCompanyNameLabel: 'Название вашей компании',
+  signUpCompanyNamePlaceholder: 'Например, lovelyfood',
+  signUpPolitics: 'Регистрируясь, я подтверждаю, что ознакомился с {0}',
+  signUpPoliticsLink: 'политикой конфиденциальности',
+  signUpButtonText: 'Зарегистрироваться',
+  signUpQuestion: 'Есть учетная запись?',
+  signUpEnterLink: 'Войти',
 };

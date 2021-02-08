@@ -1,5 +1,5 @@
 <template>
-  <div class="page auth-page login-page">
+  <div class="page auth-page register-page">
     <div class="auth-page-container">
       <section class="auth-page-header">
         <i18n
@@ -11,7 +11,10 @@
           <span class="app-name">{{ $t('foodo') }}</span>
         </i18n>
         <p class="subtitle">
-          {{ $t('welcomeText') }}
+          {{ $t('signUpSubtitle') }}
+        </p>
+        <p class="subtitle">
+          {{ $t('signUpSubtitle2') }}
         </p>
       </section>
       <section class="auth-page-form">
@@ -25,7 +28,7 @@
             type="email"
             :is-danger="$v.email.$error"
             :placeholder="$t('emailAddressPlaceholder')"
-            @keydown.native.enter="signIn"
+            @keydown.native.enter="signUp"
             @blur="$v.email.$touch()"
           />
           <template
@@ -52,8 +55,8 @@
             :is-danger="$v.password.$error"
             :icon-right="IconType.EYE_ICON"
             :is-icon-right-clickable="Boolean(password)"
-            :placeholder="$t('passwordPlaceholder')"
-            @keydown.native.enter="signIn"
+            :placeholder="$t('signUpPasswordPlaceholder')"
+            @keydown.native.enter="signUp"
             @blur="$v.password.$touch()"
           />
           <template
@@ -65,36 +68,82 @@
             </p>
           </template>
         </FField>
+        <FField
+          class="confirm-password-field"
+          :is-danger="$v.confirmPassword.$error"
+          :label="$t('signUpConfirmPasswordLabel')"
+        >
+          <FInput
+            v-model="password"
+            type="password"
+            class="has-icon-right"
+            :is-danger="$v.confirmPassword.$error"
+            :icon-right="IconType.EYE_ICON"
+            :is-icon-right-clickable="Boolean(password)"
+            :placeholder="$t('signUpConfirmPasswordLabel')"
+            @keydown.native.enter="signUp"
+            @blur="$v.confirmPassword.$touch()"
+          />
+          <template
+            v-if="$v.confirmPassword.$error"
+            slot="message"
+          >
+            <p v-if="!$v.confirmPassword.required">
+              {{ $t('required') }}
+            </p>
+          </template>
+        </FField>
+        <FField
+          class="company-name-field"
+          :is-danger="$v.companyName.$error"
+          :label="$t('signUpCompanyNameLabel')"
+        >
+          <FInput
+            v-model="companyName"
+            :is-danger="$v.companyName.$error"
+            :placeholder="$t('signUpCompanyNamePlaceholder')"
+            @keydown.native.enter="signUp"
+            @blur="$v.companyName.$touch()"
+          />
+          <template
+            v-if="$v.companyName.$error"
+            slot="message"
+          >
+            <p v-if="!$v.companyName.required">
+              {{ $t('required') }}
+            </p>
+          </template>
+        </FField>
       </section>
       <section class="auth-page-form-addition">
         <BField class="remember-me-field">
-          <BSwitch>{{ $t('rememberMe') }}</BSwitch>
+          <BSwitch>
+            <i18n
+              path="signUpPolitics"
+              tag="p"
+            >
+              <NuxtLink :to="$routesNames.home">
+                {{ $t('signUpPoliticsLink') }}
+              </NuxtLink>
+            </i18n>
+          </BSwitch>
         </BField>
-        <NuxtLink
-          class="reset-password-link is-icon"
-          :to="$routesNames.resetPassword"
-        >
-          <BaseIcon>
-            <ArrowRightIcon />
-          </BaseIcon>
-          {{ $t('resetPassword') }}
-        </NuxtLink>
       </section>
-      <section class="login-page-footer">
+      <section class="register-page-footer">
         <div class="columns">
           <div class="column">
             <button
-              class="button is-primary is-auth-button is-login-button"
-              :disabled="$v.$anyError"
-              @click="signIn"
+              class="button is-primary is-auth-button is-register-button"
+              :disabled="$v.$error"
+              @click="signUp"
             >
-              {{ $t('enter') }}
+              {{ $t('signUpButtonText') }}
             </button>
           </div>
           <div class="column">
-            <p>{{ $t('noAccountQuestion') }}</p>
-            <NuxtLink :to="$routesNames.register">
-              {{ $t('register') }}
+            <p>{{ $t('signUpQuestion') }}</p>
+            <NuxtLink :to="$routesNames.login">
+              {{ $t('signUpEnterLink') }}
             </NuxtLink>
           </div>
         </div>
@@ -109,23 +158,19 @@
   import { IconType } from '~/models/enums/IconType';
 
   export default Vue.extend({
-    name: 'Login',
+    name: 'Register',
     data() {
       return {
         email: '',
         password: '',
+        confirmPassword: '',
+        companyName: '',
         IconType,
       };
     },
     methods: {
-      signIn() {
+      signUp() {
         this.$v.$touch();
-
-        if (this.$v.$invalid) {
-          return;
-        }
-
-        this.$router.push(this.$routesNames.home);
       },
     },
     validations: {
@@ -136,6 +181,12 @@
       password: {
         required,
       },
+      confirmPassword: {
+        required,
+      },
+      companyName: {
+        required,
+      },
     },
   });
 </script>
@@ -143,22 +194,15 @@
 <style lang="scss" scoped>
 @import '~assets/styles/utils/variables';
 
-  .login-page {
+  .register-page {
+    padding-top: $building-unit-x3;
 
     .app-name {
       color: $aqua-dark;
     }
 
-    .password-field {
-      margin-bottom: $building-unit-x2;
-    }
-
-    .remember-me-field {
+    .auth-page-form-addition {
       margin-bottom: $building-unit-x3;
-    }
-
-    .reset-password-link {
-      margin-bottom: $building-unit-x1_5;
     }
   }
 </style>

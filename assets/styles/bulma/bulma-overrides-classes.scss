@@ -62,7 +62,7 @@ $button-letter-spacing: -0.2px;
 }
 
 .column {
-  padding: 0 12px;
+  padding: 0 $building-unit;
 }
 
 .label {
@@ -80,6 +80,10 @@ $button-letter-spacing: -0.2px;
     border-color: $input-danger-border-color;
     box-shadow: $input-focus-box-shadow-size $input-danger-box-shadow-color;
   }
+}
+
+.field:not(:last-child) {
+  margin-bottom: $building-unit-x1_5;
 }
 
 .help {

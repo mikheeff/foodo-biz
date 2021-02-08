@@ -2,15 +2,16 @@ export default {
   // Common
   required: 'Fill the field',
   invalidEmail: 'Invalid email',
+  password: 'Password',
   emailAddress: 'Email address',
   emailAddressPlaceholder: 'for example, jamesgrant@gmail.com',
   resetPassword: 'Reset password',
   back: 'Back',
-  // Login
-  welcomeTitle: 'Welcome to {0}',
+  welcomeTitle: 'Welcome to {0}', // todo: fix
   foodo: 'Foodo',
+  foodoUrl: 'foodo.ru',
+  // Login
   welcomeText: 'Please, enter your account using your email address and password.',
-  password: 'Password',
   passwordPlaceholder: 'Enter password',
   rememberMe: 'Remember me',
   enter: 'Enter',
@@ -24,4 +25,18 @@ export default {
   contactSupport: 'Contact our support',
   resetPasswordSuccessTitle: 'Success!',
   resetPasswordSuccessSubtitle: 'A temporary password has been sent to your email address. Don\'t forget to check your Spam folder.',
+  // Sign up
+  signUpSubtitle: 'Open up new possibilities for flexible control of your kitchen!',
+  signUpSubtitle2: 'control of your kitchen!',
+  signUpPasswordPlaceholder: 'Pick a password',
+  signUpConfirmPasswordLabel: 'Confirm the password',
+  signUpConfirmPasswordPlaceholder: 'Confirm the password',
+  signUpConfirmPasswordHelp: 'Come up with a strong password to keep your profile safe. We recommend using uppercase and lowercase letters, as well as numbers and symbols (.,! # $%)',
+  signUpCompanyNameLabel: 'Your company name',
+  signUpCompanyNamePlaceholder: 'For example lovelyfood',
+  signUpPolitics: 'By registering, I confirm that I have read {0}',
+  signUpPoliticsLink: 'the privacy policy',
+  signUpButtonText: 'Register now',
+  signUpQuestion: 'Have account?',
+  signUpEnterLink: 'Enter',
 };
