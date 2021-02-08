@@ -1,3 +1,5 @@
+$auth-button-width: 292px;
+
 body {
   color: $gray;
   @include font-size(4);
@@ -5,18 +7,26 @@ body {
 
 .page {
   background-color: $gray-249;
+  width: 100%;
 }
 
 a {
   position: relative;
 
   &:hover {
-    color: $aqua-dark;;
-    border-bottom: 1px dashed $aqua-dark;
+    border-bottom: 1px dashed $link-hover;
   }
 
   &.is-icon {
     margin-left: $link-icon-size + $link-icon-margin-right;
+  }
+
+  &.is-breadcrumb {
+    color: $gray-light;
+
+    &:hover {
+      border-bottom: 1px dashed $gray-light;
+    }
   }
 
   svg {
@@ -29,4 +39,24 @@ a {
 .title {
   color: $gray-dark;
   margin-bottom: 14px;
+}
+
+.auth-page {
+  padding: $building-unit-x10 $building-unit-x5;
+
+  &-container {
+    max-width: $login-container-width;
+  }
+
+  &-header {
+    margin-bottom: $building-unit-x3;
+  }
+
+  &-form {
+    margin-bottom: $building-unit-x1_5;
+  }
+
+  .is-auth-button {
+    width: $auth-button-width;
+  }
 }

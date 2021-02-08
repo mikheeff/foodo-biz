@@ -13,10 +13,12 @@ $label-color: $gray;
 $border: $gray-190;
 $text-strong: $gray-dark;
 $link: $aqua-dark;
+$link-hover: $link;
 $danger: $red;
 
 // utils
 $radius: $border-radius-small;
+$control-radius: $border-radius;
 
 // controls
 $control-height: $building-unit-x4;
@@ -25,11 +27,12 @@ $control-padding-vertical: $building-unit;
 
 $button-padding-vertical: $building-unit;
 $button-padding-horizontal: $building-unit_x2;
+$button-hover-color: $gray-dark;
 
 $input-focus-box-shadow-size: 0 0 2px 0;
 $input-focus-border-color: rgba(14, 152, 164, 0.21);
 $input-hover-border-color: $gray-190;
-$input-placeholder-color: $gray-161;
+$input-placeholder-color: $gray-light;
 
 $switch-width: 48px;
 $switch-padding: 2px;
