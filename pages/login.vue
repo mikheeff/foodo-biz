@@ -67,9 +67,11 @@
         </FField>
       </section>
       <section class="auth-page-form-addition">
-        <BField class="remember-me-field">
-          <BSwitch>{{ $t('rememberMe') }}</BSwitch>
-        </BField>
+        <FField class="remember-me-field">
+          <BSwitch v-model="isRememberMe">
+            {{ $t('rememberMe') }}
+          </BSwitch>
+        </FField>
         <NuxtLink
           class="reset-password-link is-icon"
           :to="$routesNames.resetPassword"
@@ -114,6 +116,7 @@
       return {
         email: '',
         password: '',
+        isRememberMe: false,
         IconType,
       };
     },

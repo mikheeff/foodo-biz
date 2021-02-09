@@ -8,6 +8,7 @@ $family-primary: $family-serif;
 // Colors
 $scheme-main: $gray-249;
 $primary: $aqua;
+$primary-invert: $white;
 $grey-light: $gray-light;
 $label-color: $gray;
 $border: $gray-190;
@@ -36,3 +37,10 @@ $input-placeholder-color: $gray-light;
 
 $switch-width: 48px;
 $switch-padding: 2px;
+
+$tooltip-dark: rgba(0, 0, 0, 0.7);
+$tooltip-dark-invert: $white;
+$tooltip-multiline-sizes: (small: 175px, medium: 370px, large: 470px);
+$tooltip-colors: ('primary': ($tooltip-dark, $tooltip-dark-invert));
+$tooltip-arrow-size: 16px;
+$tooltip-arrow-margin: $building-unit;

@@ -10,6 +10,7 @@ export default {
   welcomeTitle: 'Добро пожаловать {0} на {1}',
   foodo: 'Foodo',
   foodoUrl: 'foodo.ru',
+  passwordsNotMatched: 'Пароли не совпадают',
   // Login
   welcomeText: 'Пожалуйста, войдите под своей учётной записью, используя ваш адрес электронной почты и пароль.',
   passwordPlaceholder: 'Введите пароль',
@@ -39,4 +40,5 @@ export default {
   signUpButtonText: 'Зарегистрироваться',
   signUpQuestion: 'Есть учетная запись?',
   signUpEnterLink: 'Войти',
+  signUpSiteLabelTooltip: 'Это ваш будущий домен, на котором ваши покупатели смогу совершать покупки.',
 };

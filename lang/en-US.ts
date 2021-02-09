@@ -10,6 +10,7 @@ export default {
   welcomeTitle: 'Welcome to {0}', // todo: fix
   foodo: 'Foodo',
   foodoUrl: 'foodo.ru',
+  passwordsNotMatched: 'Passwords do not match',
   // Login
   welcomeText: 'Please, enter your account using your email address and password.',
   passwordPlaceholder: 'Enter password',
@@ -39,4 +40,5 @@ export default {
   signUpButtonText: 'Register now',
   signUpQuestion: 'Have account?',
   signUpEnterLink: 'Enter',
+  signUpSiteLabelTooltip: 'This is your future domain where your customers can shop.',
 };

@@ -74,7 +74,7 @@
           :label="$t('signUpConfirmPasswordLabel')"
         >
           <FInput
-            v-model="password"
+            v-model="confirmPassword"
             type="password"
             class="has-icon-right"
             :is-danger="$v.confirmPassword.$error"
@@ -91,6 +91,9 @@
             <p v-if="!$v.confirmPassword.required">
               {{ $t('required') }}
             </p>
+            <p v-else-if="!$v.confirmPassword.sameAsPassword">
+              {{ $t('passwordsNotMatched') }}
+            </p>
           </template>
         </FField>
         <FField
@@ -98,13 +101,21 @@
           :is-danger="$v.companyName.$error"
           :label="$t('signUpCompanyNameLabel')"
         >
-          <FInput
-            v-model="companyName"
-            :is-danger="$v.companyName.$error"
-            :placeholder="$t('signUpCompanyNamePlaceholder')"
-            @keydown.native.enter="signUp"
-            @blur="$v.companyName.$touch()"
-          />
+          <div class="company-name-input-container">
+            <FInput
+              v-model="companyName"
+              :is-danger="$v.companyName.$error"
+              :placeholder="$t('signUpCompanyNamePlaceholder')"
+              @keydown.native.enter="signUp"
+              @blur="$v.companyName.$touch()"
+            />
+            <FInfoLabel
+              class="site-info-label"
+              :tooltip-text="$t('signUpSiteLabelTooltip')"
+            >
+              {{ $t('foodoUrl') }}
+            </FInfoLabel>
+          </div>
           <template
             v-if="$v.companyName.$error"
             slot="message"
@@ -116,8 +127,8 @@
         </FField>
       </section>
       <section class="auth-page-form-addition">
-        <BField class="remember-me-field">
-          <BSwitch>
+        <FField class="remember-me-field">
+          <BSwitch v-model="isAcceptPolitics">
             <i18n
               path="signUpPolitics"
               tag="p"
@@ -127,14 +138,14 @@
               </NuxtLink>
             </i18n>
           </BSwitch>
-        </BField>
+        </FField>
       </section>
       <section class="register-page-footer">
         <div class="columns">
           <div class="column">
             <button
               class="button is-primary is-auth-button is-register-button"
-              :disabled="$v.$error"
+              :disabled="$v.$anyError || !isAcceptPolitics"
               @click="signUp"
             >
               {{ $t('signUpButtonText') }}
@@ -154,7 +165,7 @@
 
 <script lang="ts">
   import Vue from 'vue';
-  import { email, required } from 'vuelidate/lib/validators';
+  import { email, required, sameAs } from 'vuelidate/lib/validators';
   import { IconType } from '~/models/enums/IconType';
 
   export default Vue.extend({
@@ -165,6 +176,7 @@
         password: '',
         confirmPassword: '',
         companyName: '',
+        isAcceptPolitics: false,
         IconType,
       };
     },
@@ -183,6 +195,7 @@
       },
       confirmPassword: {
         required,
+        sameAsPassword: sameAs('password'),
       },
       companyName: {
         required,
@@ -192,7 +205,8 @@
 </script>
 
 <style lang="scss" scoped>
-@import '~assets/styles/utils/variables';
+  @import '~assets/styles/utils/variables';
+  @import '~assets/styles/utils/mixins';
 
   .register-page {
     padding-top: $building-unit-x3;
@@ -203,6 +217,18 @@
 
     .auth-page-form-addition {
       margin-bottom: $building-unit-x3;
+    }
+
+    .company-name-input-container {
+      position: relative;
+    }
+
+    .site-info-label {
+      @include absolute-y-center;
+      left: 100%;
+      margin-left: $building-unit-x1_5;
+      font-weight: $font-weight-extra-bold;
+      color: $gray-dark;
     }
   }
 </style>
