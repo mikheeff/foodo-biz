@@ -58,7 +58,16 @@
             :placeholder="$t('signUpPasswordPlaceholder')"
             @keydown.native.enter="signUp"
             @blur="$v.password.$touch()"
-          />
+          >
+            <template slot="notification">
+              <FNotification
+                class="confirm-password-help is-large"
+                :icon="IconType.LOCK_ICON"
+              >
+                {{ $t('signUpConfirmPasswordHelp') }}
+              </FNotification>
+            </template>
+          </FInput>
           <template
             v-if="$v.password.$error"
             slot="message"

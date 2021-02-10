@@ -36,6 +36,14 @@
         <component :is="iconRightComponent" />
       </BaseIcon>
     </span>
+    <transition name="opacity">
+      <div
+        v-if="$slots.notification && isFocused"
+        class="notification-container"
+      >
+        <slot name="notification" />
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -86,6 +94,7 @@
       return {
         isPasswordVisible: false,
         newType: this.type,
+        isFocused: false,
         InputType,
       };
     },
@@ -102,9 +111,11 @@
       },
       onBlur() {
         this.$emit('blur');
+        this.isFocused = false;
       },
       onFocus() {
         this.$emit('focus');
+        this.isFocused = true;
       },
       iconClick() {
         if (this.type === InputType.PASSWORD) {
@@ -140,6 +151,8 @@
   @import '~assets/styles/bulma/bulma-overrides-variables';
 
   .f-control {
+    position: relative;
+
     &.has-icon-right {
       .f-input {
         padding-right: 2 * $control-padding-horizontal + $default-icon-size;
@@ -158,6 +171,12 @@
         pointer-events: auto;
         cursor: pointer;
       }
+    }
+
+    .notification-container {
+      position: absolute;
+      left: calc(100% + #{$building-unit-x1_5});
+      top: 4px;
     }
   }
 

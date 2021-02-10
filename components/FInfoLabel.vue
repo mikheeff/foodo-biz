@@ -1,6 +1,6 @@
 <template>
-  <div class="info-label">
-    <span class="info-label-text">
+  <div class="f-info-label">
+    <span class="f-info-label-text">
       <slot />
     </span>
     <BTooltip
@@ -8,7 +8,7 @@
       multilined
       :label="tooltipText"
     >
-      <span class="info-label-icon">
+      <span class="f-info-label-icon">
         <BaseIcon>
           <InfoIcon />
         </BaseIcon>
@@ -36,7 +36,7 @@
 
   $info-icon-size: $building-unit-x2;
 
-  .info-label {
+  .f-info-label {
     left: 100%;
     display: flex;
     color: $gray-dark;

@@ -1,5 +1,5 @@
-$input-danger-border-color: rgba(238, 69, 64, 0.21);
-$input-danger-box-shadow-color: rgba(238, 69, 64, 0.42);
+$input-danger-border-color: rgba($red, 0.21);
+$input-danger-box-shadow-color: rgba($red, 0.42);
 
 .label {
   @include font-size(5);
