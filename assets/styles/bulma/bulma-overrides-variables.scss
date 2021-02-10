@@ -8,6 +8,7 @@ $family-primary: $family-serif;
 // Colors
 $scheme-main: $gray-249;
 $primary: $aqua;
+$primary-invert: $white;
 $grey-light: $gray-light;
 $label-color: $gray;
 $border: $gray-190;
@@ -30,9 +31,16 @@ $button-padding-horizontal: $building-unit_x2;
 $button-hover-color: $gray-dark;
 
 $input-focus-box-shadow-size: 0 0 2px 0;
-$input-focus-border-color: rgba(14, 152, 164, 0.21);
+$input-focus-border-color: rgba($aqua-dark, 0.21);
 $input-hover-border-color: $gray-190;
 $input-placeholder-color: $gray-light;
 
 $switch-width: 48px;
 $switch-padding: 2px;
+
+$tooltip-dark: rgba($black, 0.7);
+$tooltip-dark-invert: $white;
+$tooltip-multiline-sizes: (small: 175px, medium: 370px, large: 470px);
+$tooltip-colors: ('primary': ($tooltip-dark, $tooltip-dark-invert));
+$tooltip-arrow-size: 16px;
+$tooltip-arrow-margin: $building-unit;

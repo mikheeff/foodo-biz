@@ -65,11 +65,15 @@
             </p>
           </template>
         </FField>
-        <BField class="remember-me-field">
-          <BSwitch>{{ $t('rememberMe') }}</BSwitch>
-        </BField>
+      </section>
+      <section class="auth-page-form-addition">
+        <FField class="remember-me-field">
+          <BSwitch v-model="isRememberMe">
+            {{ $t('rememberMe') }}
+          </BSwitch>
+        </FField>
         <NuxtLink
-          class="is-icon"
+          class="reset-password-link is-icon"
           :to="$routesNames.resetPassword"
         >
           <BaseIcon>
@@ -78,21 +82,23 @@
           {{ $t('resetPassword') }}
         </NuxtLink>
       </section>
-      <section class="login-page-footer columns">
-        <div class="column">
-          <button
-            class="button is-primary is-auth-button is-login-button"
-            :disabled="$v.$anyError"
-            @click="signIn"
-          >
-            {{ $t('enter') }}
-          </button>
-        </div>
-        <div class="column">
-          <p>{{ $t('noAccountQuestion') }}</p>
-          <NuxtLink :to="$routesNames.home">
-            {{ $t('register') }}
-          </NuxtLink>
+      <section class="login-page-footer">
+        <div class="columns">
+          <div class="column">
+            <button
+              class="button is-primary is-auth-button is-login-button"
+              :disabled="$v.$anyError"
+              @click="signIn"
+            >
+              {{ $t('enter') }}
+            </button>
+          </div>
+          <div class="column">
+            <p>{{ $t('noAccountQuestion') }}</p>
+            <NuxtLink :to="$routesNames.register">
+              {{ $t('register') }}
+            </NuxtLink>
+          </div>
         </div>
       </section>
     </div>
@@ -110,6 +116,7 @@
       return {
         email: '',
         password: '',
+        isRememberMe: false,
         IconType,
       };
     },
@@ -139,8 +146,6 @@
 <style lang="scss" scoped>
 @import '~assets/styles/utils/variables';
 
-$login-button-margin-right: 10px;
-
   .login-page {
 
     .app-name {
@@ -155,8 +160,8 @@ $login-button-margin-right: 10px;
       margin-bottom: $building-unit-x3;
     }
 
-    .is-login-button {
-      margin-right: $login-button-margin-right;
+    .reset-password-link {
+      margin-bottom: $building-unit-x1_5;
     }
   }
 </style>
