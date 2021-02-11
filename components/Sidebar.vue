@@ -1,112 +1,108 @@
 <template>
   <aside class="sidebar">
-    <div class="sidebar-header">
-      <div class="logo" />
+    <div class="sidebar-menu">
+      <div class="sidebar-menu-logo" />
       <transition name="opacity">
         <div
           v-if="isAuthorized"
-          class="sidebar-menu"
+          class="sidebar-menu-navigation"
         >
-          <NuxtLink
-            tag="div"
-            class="sidebar-menu-item"
-            :to="{name: $routesNames.homeStatistics}"
-          >
-            <BaseIcon
-              height="28"
-              width="28"
+          <div class="sidebar-menu-navigation-top">
+            <NuxtLink
+              tag="div"
+              class="sidebar-menu-item"
+              :to="{name: $routesNames.homeStatistics}"
             >
-              <HomeIcon />
-            </BaseIcon>
-            <span class="sidebar-menu-item-title">{{ $t('main') }}</span>
-          </NuxtLink>
-          <NuxtLink
-            tag="div"
-            class="sidebar-menu-item"
-            :to="{name: $routesNames.menuPlans}"
-          >
-            <BaseIcon
-              height="28"
-              width="28"
+              <BaseIcon
+                height="28"
+                width="28"
+              >
+                <HomeIcon />
+              </BaseIcon>
+              <span class="sidebar-menu-item-title">{{ $t('main') }}</span>
+            </NuxtLink>
+            <NuxtLink
+              tag="div"
+              class="sidebar-menu-item"
+              :to="{name: $routesNames.menuPlans}"
             >
-              <MenuIcon />
-            </BaseIcon>
-            <span class="sidebar-menu-item-title">{{ $t('menu') }}</span>
-          </NuxtLink>
-          <NuxtLink
-            tag="div"
-            class="sidebar-menu-item"
-            :to="{name: $routesNames.kitchenClients}"
-          >
-            <BaseIcon
-              height="28"
-              width="28"
+              <BaseIcon
+                height="28"
+                width="28"
+              >
+                <MenuIcon />
+              </BaseIcon>
+              <span class="sidebar-menu-item-title">{{ $t('menu') }}</span>
+            </NuxtLink>
+            <NuxtLink
+              tag="div"
+              class="sidebar-menu-item"
+              :to="{name: $routesNames.kitchenClients}"
             >
-              <KitchenIcon />
-            </BaseIcon>
-            <span class="sidebar-menu-item-title">{{ $t('kitchen') }}</span>
-          </NuxtLink>
-          <NuxtLink
-            tag="div"
-            class="sidebar-menu-item"
-            :to="{name: $routesNames.ordersOrders}"
-          >
-            <BaseIcon
-              height="28"
-              width="28"
+              <BaseIcon
+                height="28"
+                width="28"
+              >
+                <KitchenIcon />
+              </BaseIcon>
+              <span class="sidebar-menu-item-title">{{ $t('kitchen') }}</span>
+            </NuxtLink>
+            <NuxtLink
+              tag="div"
+              class="sidebar-menu-item"
+              :to="{name: $routesNames.ordersOrders}"
             >
-              <OrderIcon />
-            </BaseIcon>
-            <span class="sidebar-menu-item-title">{{ $t('orders') }}</span>
-          </NuxtLink>
+              <BaseIcon
+                height="28"
+                width="28"
+              >
+                <OrderIcon />
+              </BaseIcon>
+              <span class="sidebar-menu-item-title">{{ $t('orders') }}</span>
+            </NuxtLink>
+          </div>
+          <div class="sidebar-menu-navigation-bottom">
+            <NuxtLink
+              tag="div"
+              class="sidebar-menu-item"
+              :to="{name: $routesNames.login}"
+            >
+              <BaseIcon
+                height="28"
+                width="28"
+              >
+                <BellIcon />
+              </BaseIcon>
+            </NuxtLink>
+            <NuxtLink
+              tag="div"
+              class="sidebar-menu-item"
+              :to="{name: $routesNames.settingsProfile}"
+            >
+              <BaseIcon
+                height="28"
+                width="28"
+              >
+                <SettingsIcon />
+              </BaseIcon>
+            </NuxtLink>
+            <NuxtLink
+              tag="div"
+              class="sidebar-menu-item"
+              :to="{name: $routesNames.login}"
+            >
+              <BaseIcon
+                height="28"
+                width="28"
+              >
+                <ExitIcon />
+              </BaseIcon>
+            </NuxtLink>
+          </div>
         </div>
       </transition>
     </div>
-    <div class="sidebar-footer">
-      <transition name="opacity">
-        <div
-          v-if="isAuthorized"
-          class="sidebar-bottom-menu"
-        >
-          <NuxtLink
-            tag="div"
-            class="sidebar-menu-item"
-            :to="{name: $routesNames.login}"
-          >
-            <BaseIcon
-              height="28"
-              width="28"
-            >
-              <BellIcon />
-            </BaseIcon>
-          </NuxtLink>
-          <NuxtLink
-            tag="div"
-            class="sidebar-menu-item"
-            :to="{name: $routesNames.settingsProfile}"
-          >
-            <BaseIcon
-              height="28"
-              width="28"
-            >
-              <SettingsIcon />
-            </BaseIcon>
-          </NuxtLink>
-          <NuxtLink
-            tag="div"
-            class="sidebar-menu-item"
-            :to="{name: $routesNames.login}"
-          >
-            <BaseIcon
-              height="28"
-              width="28"
-            >
-              <ExitIcon />
-            </BaseIcon>
-          </NuxtLink>
-        </div>
-      </transition>
-    </div>
+    <div class="sidebar-submenu" />
   </aside>
 </template>
 
@@ -147,27 +143,30 @@
   $menu-item-height: 90px;
 
   .sidebar {
-    width: $sidebar-width;
-    padding: $building-unit-x2_5 $building-unit-x0_5 $building-unit-x0_5;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background: linear-gradient(176deg, #12b8c6 15%, #0e98a4 89%);
 
-    &-header {
+    &-menu {
       display: flex;
       flex-direction: column;
       align-items: center;
-    }
+      justify-content: flex-start;
+      width: $sidebar-width;
+      padding: $building-unit-x2_5 $building-unit-x0_5 $building-unit-x0_5;
+      background: linear-gradient(176deg, #12b8c6 15%, #0e98a4 89%);
 
-    .logo {
-      height: $logo-size;
-      width: $logo-size;
-      margin-bottom: $building-unit-x5;
-      background: url('~assets/icons/logo.svg');
-    }
+      &-logo {
+        height: $logo-size;
+        width: $logo-size;
+        margin-bottom: $building-unit-x5;
+        background: url('~assets/icons/logo.svg');
+      }
 
-    &-menu {
+      &-navigation {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-grow: 1;
+      }
 
       &-item {
         cursor: pointer;
@@ -197,10 +196,6 @@
           margin-top: $building-unit-x0_5;
         }
       }
-    }
-
-    &-bottom-menu {
-
     }
   }
 </style>
