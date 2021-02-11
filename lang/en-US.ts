@@ -11,6 +11,13 @@ export default {
   foodo: 'Foodo',
   foodoUrl: 'foodo.ru',
   passwordsNotMatched: 'Passwords do not match',
+  main: 'Main',
+  menu: 'Menu',
+  kitchen: 'Kitchen',
+  orders: 'Orders',
+  statistic: 'Statistic',
+  incomeAndExpenses: 'Income & Expenses',
+  analytics: 'Analytics',
   // Login
   welcomeText: 'Please, enter your account using your email address and password.',
   passwordPlaceholder: 'Enter password',

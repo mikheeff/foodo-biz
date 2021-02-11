@@ -2,8 +2,9 @@
 $white: #ffffff;
 $black: #000000;
 
-$gray: #6c6d7b;
+$gray-53: #35363c;
 $gray-dark: #585967;
+$gray: #6c6d7b;
 $gray-light: #a1a2aa;
 $gray-190: #bebec7;
 $gray-193: #c1c1c8;
@@ -43,6 +44,7 @@ $lh-2: 38px;
 $lh-3: 38px;
 $lh-4: 28px;
 $lh-5: 24px;
+$lh-6: 20px;
 
 // font-sizes
 $head-1: 42px;
@@ -50,6 +52,7 @@ $head-2: 27px;
 $head-3: 27px;
 $head-4: 19px;
 $head-5: 17px;
+$head-6: 15px;
 
 // font-weights
 $font-weight-extra-light: 200;
@@ -66,6 +69,7 @@ $letter-spacing-2: -0.6px;
 $letter-spacing-3: -0.6px;
 $letter-spacing-4: -0.1px;
 $letter-spacing-5: -0.4px;
+$letter-spacing-6: -0.1px;
 
 // headline
 $head-font-list:
@@ -98,6 +102,12 @@ $head-font-list:
     lineHeight: $lh-5,
     fontWeight: $font-weight-medium,
     letterSpacing: $letter-spacing-5,
+  ),
+  (
+    fontSize: $head-6,
+    lineHeight: $lh-6,
+    fontWeight: $font-weight-medium,
+    letterSpacing: $letter-spacing-6,
   );
 
 // transitions
