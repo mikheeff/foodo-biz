@@ -58,10 +58,9 @@
         }
       },
       getTooltipContentPosition(): ClientRect {
-        const tooltipContent = (this.$refs.tooltip as Vue).$el.children.item(0);
-        if (tooltipContent) {
-          return tooltipContent.getBoundingClientRect();
-        }
+        const tooltipContent = (this.$refs.tooltip as Vue).$el.children.item(0) as Element;
+
+        return tooltipContent.getBoundingClientRect();
       },
       getTooltipPosition(): ClientRect {
         return (this.$refs.tooltip as Vue).$el.getBoundingClientRect();

@@ -61,7 +61,7 @@
         </button>
         <div class="reset-password-footer-info">
           <p>{{ $t('notRememberEmail') }}</p>
-          <NuxtLink :to="$routesNames.home">
+          <NuxtLink :to="$routesNames.homeAnalytics">
             {{ $t('contactSupport') }}
           </NuxtLink>
         </div>

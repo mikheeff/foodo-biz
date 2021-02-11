@@ -128,7 +128,7 @@
           return;
         }
 
-        this.$router.push(this.$routesNames.home);
+        this.$router.push(this.$routesNames.homeStatistics);
       },
     },
     validations: {

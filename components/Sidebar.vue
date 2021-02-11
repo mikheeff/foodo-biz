@@ -2,72 +2,110 @@
   <aside class="sidebar">
     <div class="sidebar-header">
       <div class="logo" />
-      <div class="sidebar-menu">
-        <div class="sidebar-menu-item">
-          <BaseIcon
-            height="28"
-            width="28"
+      <transition name="opacity">
+        <div
+          v-if="isAuthorized"
+          class="sidebar-menu"
+        >
+          <NuxtLink
+            tag="div"
+            class="sidebar-menu-item"
+            :to="{name: $routesNames.homeStatistics}"
           >
-            <HomeIcon />
-          </BaseIcon>
-          <span class="sidebar-menu-item-title">{{ $t('main') }}</span>
-        </div>
-        <div class="sidebar-menu-item">
-          <BaseIcon
-            height="28"
-            width="28"
+            <BaseIcon
+              height="28"
+              width="28"
+            >
+              <HomeIcon />
+            </BaseIcon>
+            <span class="sidebar-menu-item-title">{{ $t('main') }}</span>
+          </NuxtLink>
+          <NuxtLink
+            tag="div"
+            class="sidebar-menu-item"
+            :to="{name: $routesNames.menuPlans}"
           >
-            <MenuIcon />
-          </BaseIcon>
-          <span class="sidebar-menu-item-title">{{ $t('menu') }}</span>
-        </div>
-        <div class="sidebar-menu-item">
-          <BaseIcon
-            height="28"
-            width="28"
+            <BaseIcon
+              height="28"
+              width="28"
+            >
+              <MenuIcon />
+            </BaseIcon>
+            <span class="sidebar-menu-item-title">{{ $t('menu') }}</span>
+          </NuxtLink>
+          <NuxtLink
+            tag="div"
+            class="sidebar-menu-item"
+            :to="{name: $routesNames.kitchenClients}"
           >
-            <KitchenIcon />
-          </BaseIcon>
-          <span class="sidebar-menu-item-title">{{ $t('kitchen') }}</span>
-        </div>
-        <div class="sidebar-menu-item">
-          <BaseIcon
-            height="28"
-            width="28"
+            <BaseIcon
+              height="28"
+              width="28"
+            >
+              <KitchenIcon />
+            </BaseIcon>
+            <span class="sidebar-menu-item-title">{{ $t('kitchen') }}</span>
+          </NuxtLink>
+          <NuxtLink
+            tag="div"
+            class="sidebar-menu-item"
+            :to="{name: $routesNames.ordersOrders}"
           >
-            <OrderIcon />
-          </BaseIcon>
-          <span class="sidebar-menu-item-title">{{ $t('orders') }}</span>
+            <BaseIcon
+              height="28"
+              width="28"
+            >
+              <OrderIcon />
+            </BaseIcon>
+            <span class="sidebar-menu-item-title">{{ $t('orders') }}</span>
+          </NuxtLink>
         </div>
-      </div>
+      </transition>
     </div>
     <div class="sidebar-footer">
-      <div class="sidebar-bottom-menu">
-        <div class="sidebar-menu-item">
-          <BaseIcon
-            height="28"
-            width="28"
+      <transition name="opacity">
+        <div
+          v-if="isAuthorized"
+          class="sidebar-bottom-menu"
+        >
+          <NuxtLink
+            tag="div"
+            class="sidebar-menu-item"
+            :to="{name: $routesNames.login}"
           >
-            <BellIcon />
-          </BaseIcon>
-        </div>
-        <div class="sidebar-menu-item">
-          <BaseIcon
-            height="28"
-            width="28"
+            <BaseIcon
+              height="28"
+              width="28"
+            >
+              <BellIcon />
+            </BaseIcon>
+          </NuxtLink>
+          <NuxtLink
+            tag="div"
+            class="sidebar-menu-item"
+            :to="{name: $routesNames.settingsProfile}"
           >
-            <SettingsIcon />
-          </BaseIcon>
-        </div>
-        <div class="sidebar-menu-item">
-          <BaseIcon
-            height="28"
-            width="28"
+            <BaseIcon
+              height="28"
+              width="28"
+            >
+              <SettingsIcon />
+            </BaseIcon>
+          </NuxtLink>
+          <NuxtLink
+            tag="div"
+            class="sidebar-menu-item"
+            :to="{name: $routesNames.login}"
           >
-            <ExitIcon />
-          </BaseIcon>
+            <BaseIcon
+              height="28"
+              width="28"
+            >
+              <ExitIcon />
+            </BaseIcon>
+          </NuxtLink>
         </div>
-      </div>
+      </transition>
     </div>
   </aside>
 </template>
@@ -81,7 +119,21 @@
   import ExitIcon from '~/components/icons/ExitIcon.vue';
 
   export default Vue.extend({
-    components: { ExitIcon, SettingsIcon, OrderIcon, KitchenIcon, MenuIcon },
+    components: {
+      ExitIcon,
+      SettingsIcon,
+      OrderIcon,
+      KitchenIcon,
+      MenuIcon,
+    },
+    computed: {
+      isAuthorized(): boolean {
+        // TODO: tbd
+        return this.$route.name !== this.$routesNames.login &&
+          this.$route.name !== this.$routesNames.resetPassword &&
+          this.$route.name !== this.$routesNames.register;
+      },
+    },
   });
 </script>
 
@@ -132,6 +184,7 @@
           margin-bottom: $building-unit;
         }
 
+        &.nuxt-link-exact-active,
         &:hover {
           background-color: rgba($gray-53, 0.42);
         }

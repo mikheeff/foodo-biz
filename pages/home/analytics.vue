@@ -1,13 +1,15 @@
 <template>
   <div>
-    hello
+    Analytics
   </div>
 </template>
 
 <script lang="ts">
   import Vue from 'vue';
 
-  export default Vue.extend({});
+  export default Vue.extend({
+    name: 'Analytics',
+  });
 </script>
 
 <style lang="scss" scoped>

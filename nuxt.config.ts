@@ -21,6 +21,7 @@ const config: NuxtConfig = {
   },
 
   router: {
+    routeNameSplitter: '/',
     // middleware: 'auth',
   },
 
