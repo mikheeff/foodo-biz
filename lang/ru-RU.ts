@@ -15,7 +15,7 @@ export default {
   menu: 'Меню',
   kitchen: 'Кухня',
   orders: 'Заказы',
-  statistic: 'Статистика',
+  statistics: 'Статистика',
   incomeAndExpenses: 'Доходы и Расходы',
   analytics: 'Аналитика',
   // Login
