@@ -1,6 +1,6 @@
 <template>
   <div>
-    Setting
+    Profile Setting
   </div>
 </template>
 
@@ -8,7 +8,7 @@
   import Vue from 'vue';
 
   export default Vue.extend({
-    name: 'Setting',
+    name: 'ProfileSetting',
   });
 </script>
 

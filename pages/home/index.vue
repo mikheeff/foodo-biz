@@ -1,17 +1,11 @@
-<template>
-  <div>
-    Statistics
-  </div>
-</template>
-
 <script lang="ts">
   import Vue from 'vue';
+  import { routerPagesNames } from '~/models/__routes';
 
   export default Vue.extend({
-    name: 'Statistics',
+    name: 'Home',
+    middleware({ redirect }) {
+      return redirect({ name: routerPagesNames.home.statistics });
+    },
   });
 </script>
-
-<style lang="scss" scoped>
-
-</style>

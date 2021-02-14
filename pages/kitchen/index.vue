@@ -1,17 +1,11 @@
-<template>
-  <div>
-    Client
-  </div>
-</template>
-
 <script lang="ts">
   import Vue from 'vue';
+  import { routerPagesNames } from '~/models/__routes';
 
   export default Vue.extend({
-    name: 'Clients',
+    name: 'Kitchen',
+    middleware({ redirect }) {
+      return redirect({ name: routerPagesNames.kitchen.clients });
+    },
   });
 </script>
-
-<style lang="scss" scoped>
-
-</style>

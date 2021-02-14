@@ -18,6 +18,13 @@ export default {
   statistics: 'Статистика',
   incomeAndExpenses: 'Доходы и Расходы',
   analytics: 'Аналитика',
+  plans: 'Планы',
+  recipes: 'Рецепты',
+  ingredients: 'Ингредиенты',
+  clients: 'Клиенты',
+  kitchenSetting: 'Настройки кухни',
+  promoCodes: 'Промокоды',
+  feedback: 'Обратная связь',
   // Login
   welcomeText: 'Пожалуйста, войдите под своей учётной записью, используя ваш адрес электронной почты и пароль.',
   passwordPlaceholder: 'Введите пароль',

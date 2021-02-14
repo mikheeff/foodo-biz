@@ -1,17 +1,11 @@
-<template>
-  <div>
-    Plans
-  </div>
-</template>
-
 <script lang="ts">
   import Vue from 'vue';
+  import { routerPagesNames } from '~/models/__routes';
 
   export default Vue.extend({
-    name: 'Plans',
+    name: 'Menu',
+    middleware({ redirect }) {
+      return redirect({ name: routerPagesNames.menu.plans });
+    },
   });
 </script>
-
-<style lang="scss" scoped>
-
-</style>

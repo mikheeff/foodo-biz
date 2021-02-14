@@ -128,7 +128,7 @@
           return;
         }
 
-        this.$router.push(this.$routesNames.homeStatistics);
+        this.$router.push({ name: this.$routesNames.home.index });
       },
     },
     validations: {

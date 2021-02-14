@@ -11,7 +11,7 @@
             <NuxtLink
               tag="div"
               class="sidebar-menu-item"
-              :to="{name: $routesNames.home}"
+              :to="{name: $routesNames.home.index}"
             >
               <BaseIcon
                 height="28"
@@ -24,7 +24,7 @@
             <NuxtLink
               tag="div"
               class="sidebar-menu-item"
-              :to="{name: $routesNames.menu}"
+              :to="{name: $routesNames.menu.index}"
             >
               <BaseIcon
                 height="28"
@@ -37,7 +37,7 @@
             <NuxtLink
               tag="div"
               class="sidebar-menu-item"
-              :to="{name: $routesNames.kitchen}"
+              :to="{name: $routesNames.kitchen.index}"
             >
               <BaseIcon
                 height="28"
@@ -50,7 +50,7 @@
             <NuxtLink
               tag="div"
               class="sidebar-menu-item"
-              :to="{name: $routesNames.orders}"
+              :to="{name: $routesNames.orders.index}"
             >
               <BaseIcon
                 height="28"
@@ -77,7 +77,7 @@
             <NuxtLink
               tag="div"
               class="sidebar-menu-item"
-              :to="{name: $routesNames.settings}"
+              :to="{name: $routesNames.settings.index}"
             >
               <BaseIcon
                 height="28"
@@ -102,18 +102,21 @@
         </div>
       </transition>
     </div>
-    <div class="sidebar-submenu">
+    <div
+      v-if="isAuthorized"
+      class="sidebar-submenu"
+    >
       <div class="sidebar-submenu-header">
         <h1 class="title is-size-4">
           {{ $t('main') }}
         </h1>
       </div>
       <div
-        v-if="isHomeRoute"
+        v-if="isCurrentRouteChildOfRoot($routesNames.home.index)"
         class="sidebar-submenu-items"
       >
         <NuxtLink
-          :to="{name: $routesNames.home}"
+          :to="{name: $routesNames.home.statistics}"
           tag="div"
           class="sidebar-submenu-item"
         >
@@ -126,7 +129,7 @@
           <span>{{ $t('statistics') }}</span>
         </NuxtLink>
         <NuxtLink
-          :to="{name: $routesNames.homeIncomeExpenses}"
+          :to="{name: $routesNames.home.incomeExpenses}"
           tag="div"
           class="sidebar-submenu-item"
         >
@@ -139,7 +142,7 @@
           <span>{{ $t('incomeAndExpenses') }}</span>
         </NuxtLink>
         <NuxtLink
-          :to="{name: $routesNames.homeAnalytics}"
+          :to="{name: $routesNames.home.analytics}"
           tag="div"
           class="sidebar-submenu-item"
         >
@@ -152,17 +155,136 @@
           <span>{{ $t('analytics') }}</span>
         </NuxtLink>
       </div>
+      <div
+        v-if="isCurrentRouteChildOfRoot($routesNames.menu.index)"
+        class="sidebar-submenu-items"
+      >
+        <NuxtLink
+          :to="{name: $routesNames.menu.plans}"
+          tag="div"
+          class="sidebar-submenu-item"
+        >
+          <BaseIcon
+            height="28"
+            width="28"
+          >
+            <PlansIcon />
+          </BaseIcon>
+          <span>{{ $t('plans') }}</span>
+        </NuxtLink>
+        <NuxtLink
+          :to="{name: $routesNames.menu.recipes}"
+          tag="div"
+          class="sidebar-submenu-item"
+        >
+          <BaseIcon
+            height="28"
+            width="29"
+          >
+            <MenuIcon />
+          </BaseIcon>
+          <span>{{ $t('recipes') }}</span>
+        </NuxtLink>
+        <NuxtLink
+          :to="{name: $routesNames.menu.ingredients}"
+          tag="div"
+          class="sidebar-submenu-item"
+        >
+          <BaseIcon
+            height="28"
+            width="28"
+          >
+            <IngredientIcon />
+          </BaseIcon>
+          <span>{{ $t('ingredients') }}</span>
+        </NuxtLink>
+      </div>
+      <div
+        v-if="isCurrentRouteChildOfRoot($routesNames.kitchen.index)"
+        class="sidebar-submenu-items"
+      >
+        <NuxtLink
+          :to="{name: $routesNames.kitchen.clients}"
+          tag="div"
+          class="sidebar-submenu-item"
+        >
+          <BaseIcon
+            height="28"
+            width="28"
+          >
+            <CustomersIcon />
+          </BaseIcon>
+          <span>{{ $t('plans') }}</span>
+        </NuxtLink>
+        <NuxtLink
+          :to="{name: $routesNames.kitchen.settings}"
+          tag="div"
+          class="sidebar-submenu-item"
+        >
+          <BaseIcon
+            height="28"
+            width="29"
+          >
+            <KitchenSettingsIcon />
+          </BaseIcon>
+          <span>{{ $t('recipes') }}</span>
+        </NuxtLink>
+        <NuxtLink
+          :to="{name: $routesNames.kitchen.promoCodes}"
+          tag="div"
+          class="sidebar-submenu-item"
+        >
+          <BaseIcon
+            height="28"
+            width="28"
+          >
+            <PromoCodesIcon />
+          </BaseIcon>
+          <span>{{ $t('ingredients') }}</span>
+        </NuxtLink>
+      </div>
+      <div
+        v-if="isCurrentRouteChildOfRoot($routesNames.orders.index)"
+        class="sidebar-submenu-items"
+      >
+        <NuxtLink
+          :to="{name: $routesNames.orders.index}"
+          tag="div"
+          class="sidebar-submenu-item"
+        >
+          <BaseIcon
+            height="28"
+            width="28"
+          >
+            <OrderIcon />
+          </BaseIcon>
+          <span>{{ $t('orders') }}</span>
+        </NuxtLink>
+        <NuxtLink
+          :to="{name: $routesNames.orders.feedback}"
+          tag="div"
+          class="sidebar-submenu-item"
+        >
+          <BaseIcon
+            height="28"
+            width="29"
+          >
+            <FeedbackIcon />
+          </BaseIcon>
+          <span>{{ $t('feedback') }}</span>
+        </NuxtLink>
+      </div>
     </div>
   </aside>
 </template>
 
 <script lang="ts">
   import Vue from 'vue';
-  import IncomeAndExpensesIcon from '~/components/icons/IncomeAndExpensesIcon.vue';
-  import AnalyticsIcon from '~/components/icons/AnalyticsIcon.vue';
+  import OrderIcon from '~/components/icons/OrderIcon.vue';
+  import FeedbackIcon from '~/components/icons/FeedbackIcon.vue';
 
   export default Vue.extend({
-    components: { AnalyticsIcon, IncomeAndExpensesIcon },
+    components: { FeedbackIcon, OrderIcon },
     computed: {
       isAuthorized(): boolean {
         // TODO: tbd
@@ -170,9 +292,15 @@
           this.$route.name !== this.$routesNames.resetPassword &&
           this.$route.name !== this.$routesNames.register;
       },
-      isHomeRoute() {
-        return true;
+    },
+    methods: {
+      isCurrentRouteChildOfRoot(routeName: string) {
+        const route = this.$router.resolve({ name: routeName });
+        return this.$route.fullPath.startsWith(route.href);
       },
+    },
+    meta: {
+      hey: 'get',
     },
   });
 </script>

@@ -18,6 +18,13 @@ export default {
   statistic: 'Statistic',
   incomeAndExpenses: 'Income & Expenses',
   analytics: 'Analytics',
+  plans: 'Plans',
+  recipes: 'Recipes',
+  ingredients: 'Ingredients',
+  clients: 'Clients',
+  kitchenSetting: 'Kitchen setting',
+  promoCodes: 'Promo codes',
+  feedback: 'Feedback',
   // Login
   welcomeText: 'Please, enter your account using your email address and password.',
   passwordPlaceholder: 'Enter password',

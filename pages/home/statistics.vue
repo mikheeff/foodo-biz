@@ -1,6 +1,6 @@
 <template>
   <div>
-    Setting
+    Statistics
   </div>
 </template>
 
@@ -8,7 +8,10 @@
   import Vue from 'vue';
 
   export default Vue.extend({
-    name: 'Setting',
+    name: 'Statistics',
+    meta: {
+      hey: 'sf',
+    },
   });
 </script>
 

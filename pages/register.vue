@@ -142,7 +142,7 @@
               path="signUpPolitics"
               tag="p"
             >
-              <NuxtLink :to="$routesNames.homeAnalytics">
+              <NuxtLink :to="$routesNames.home.index">
                 {{ $t('signUpPoliticsLink') }}
               </NuxtLink>
             </i18n>
