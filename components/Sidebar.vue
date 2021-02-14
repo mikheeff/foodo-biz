@@ -107,11 +107,6 @@
       v-if="isAuthorized"
       class="sidebar-submenu"
     >
-      <div class="sidebar-submenu-header">
-        <h1 class="title is-size-4">
-          {{ $t('main') }}
-        </h1>
-      </div>
       <transition
         mode="out-in"
         name="opacity"
@@ -121,6 +116,11 @@
           key="home"
           class="sidebar-submenu-items"
         >
+          <div class="sidebar-submenu-header">
+            <h1 class="title is-size-4">
+              {{ $t('main') }}
+            </h1>
+          </div>
           <NuxtLink
             :to="{name: $routesNames.home.statistics}"
             tag="div"
@@ -166,6 +166,11 @@
           key="menu"
           class="sidebar-submenu-items"
         >
+          <div class="sidebar-submenu-header">
+            <h1 class="title is-size-4">
+              {{ $t('menu') }}
+            </h1>
+          </div>
           <NuxtLink
             :to="{name: $routesNames.menu.plans}"
             tag="div"
@@ -211,6 +216,11 @@
           key="kitchen"
           class="sidebar-submenu-items"
         >
+          <div class="sidebar-submenu-header">
+            <h1 class="title is-size-4">
+              {{ $t('kitchen') }}
+            </h1>
+          </div>
           <NuxtLink
             :to="{name: $routesNames.kitchen.clients}"
             tag="div"
@@ -256,6 +266,11 @@
           key="orders"
           class="sidebar-submenu-items"
         >
+          <div class="sidebar-submenu-header">
+            <h1 class="title is-size-4">
+              {{ $t('orders') }}
+            </h1>
+          </div>
           <NuxtLink
             :to="{name: $routesNames.orders.index}"
             tag="div"
@@ -288,6 +303,11 @@
           key="settings"
           class="sidebar-submenu-items"
         >
+          <div class="sidebar-submenu-header">
+            <h1 class="title is-size-4">
+              {{ $t('settings') }}
+            </h1>
+          </div>
           <NuxtLink
             :to="{name: $routesNames.settings.profile}"
             tag="div"
@@ -452,7 +472,7 @@
       padding: 0 $building-unit_x2;
 
       &-item {
-        transition: color $transition-default;
+        transition: all $transition-default;
         cursor: pointer;
         display: flex;
         align-items: center;
