@@ -25,6 +25,10 @@ export default {
   kitchenSetting: 'Настройки кухни',
   promoCodes: 'Промокоды',
   feedback: 'Обратная связь',
+  profileSettings: 'Настройки профайла',
+  subscriptionAndPayment: 'Подписка и оплата',
+  companySettings: 'Настройки компании',
+  mailboxSettings: 'Настройка почты',
   // Login
   welcomeText: 'Пожалуйста, войдите под своей учётной записью, используя ваш адрес электронной почты и пароль.',
   passwordPlaceholder: 'Введите пароль',

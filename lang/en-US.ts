@@ -25,6 +25,10 @@ export default {
   kitchenSetting: 'Kitchen setting',
   promoCodes: 'Promo codes',
   feedback: 'Feedback',
+  profileSettings: 'Profile settings',
+  subscriptionAndPayment: 'Subscription & Payment',
+  companySettings: 'Company settings',
+  mailboxSettings: 'Mailbox settings',
   // Login
   welcomeText: 'Please, enter your account using your email address and password.',
   passwordPlaceholder: 'Enter password',

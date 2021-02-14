@@ -62,6 +62,7 @@
             </NuxtLink>
           </div>
           <div class="sidebar-menu-navigation-bottom">
+            <!-- todo: notification button action-->
             <NuxtLink
               tag="div"
               class="sidebar-menu-item"
@@ -111,169 +112,236 @@
           {{ $t('main') }}
         </h1>
       </div>
-      <div
-        v-if="isCurrentRouteChildOfRoot($routesNames.home.index)"
-        class="sidebar-submenu-items"
+      <transition
+        mode="out-in"
+        name="opacity"
       >
-        <NuxtLink
-          :to="{name: $routesNames.home.statistics}"
-          tag="div"
-          class="sidebar-submenu-item"
+        <div
+          v-if="isCurrentRouteChildOfRoot($routesNames.home.index)"
+          key="home"
+          class="sidebar-submenu-items"
         >
-          <BaseIcon
-            height="28"
-            width="28"
+          <NuxtLink
+            :to="{name: $routesNames.home.statistics}"
+            tag="div"
+            class="sidebar-submenu-item"
           >
-            <StatisticsIcon />
-          </BaseIcon>
-          <span>{{ $t('statistics') }}</span>
-        </NuxtLink>
-        <NuxtLink
-          :to="{name: $routesNames.home.incomeExpenses}"
-          tag="div"
-          class="sidebar-submenu-item"
+            <BaseIcon
+              height="28"
+              width="28"
+            >
+              <StatisticsIcon />
+            </BaseIcon>
+            <span>{{ $t('statistics') }}</span>
+          </NuxtLink>
+          <NuxtLink
+            :to="{name: $routesNames.home.incomeExpenses}"
+            tag="div"
+            class="sidebar-submenu-item"
+          >
+            <BaseIcon
+              height="28"
+              width="29"
+            >
+              <IncomeAndExpensesIcon />
+            </BaseIcon>
+            <span>{{ $t('incomeAndExpenses') }}</span>
+          </NuxtLink>
+          <NuxtLink
+            :to="{name: $routesNames.home.analytics}"
+            tag="div"
+            class="sidebar-submenu-item"
+          >
+            <BaseIcon
+              height="28"
+              width="29"
+            >
+              <AnalyticsIcon />
+            </BaseIcon>
+            <span>{{ $t('analytics') }}</span>
+          </NuxtLink>
+        </div>
+        <div
+          v-else-if="isCurrentRouteChildOfRoot($routesNames.menu.index)"
+          key="menu"
+          class="sidebar-submenu-items"
         >
-          <BaseIcon
-            height="28"
-            width="29"
+          <NuxtLink
+            :to="{name: $routesNames.menu.plans}"
+            tag="div"
+            class="sidebar-submenu-item"
           >
-            <IncomeAndExpensesIcon />
-          </BaseIcon>
-          <span>{{ $t('incomeAndExpenses') }}</span>
-        </NuxtLink>
-        <NuxtLink
-          :to="{name: $routesNames.home.analytics}"
-          tag="div"
-          class="sidebar-submenu-item"
+            <BaseIcon
+              height="28"
+              width="28"
+            >
+              <PlansIcon />
+            </BaseIcon>
+            <span>{{ $t('plans') }}</span>
+          </NuxtLink>
+          <NuxtLink
+            :to="{name: $routesNames.menu.recipes}"
+            tag="div"
+            class="sidebar-submenu-item"
+          >
+            <BaseIcon
+              height="28"
+              width="29"
+            >
+              <MenuIcon />
+            </BaseIcon>
+            <span>{{ $t('recipes') }}</span>
+          </NuxtLink>
+          <NuxtLink
+            :to="{name: $routesNames.menu.ingredients}"
+            tag="div"
+            class="sidebar-submenu-item"
+          >
+            <BaseIcon
+              height="28"
+              width="28"
+            >
+              <IngredientIcon />
+            </BaseIcon>
+            <span>{{ $t('ingredients') }}</span>
+          </NuxtLink>
+        </div>
+        <div
+          v-else-if="isCurrentRouteChildOfRoot($routesNames.kitchen.index)"
+          key="kitchen"
+          class="sidebar-submenu-items"
         >
-          <BaseIcon
-            height="28"
-            width="29"
+          <NuxtLink
+            :to="{name: $routesNames.kitchen.clients}"
+            tag="div"
+            class="sidebar-submenu-item"
           >
-            <AnalyticsIcon />
-          </BaseIcon>
-          <span>{{ $t('analytics') }}</span>
-        </NuxtLink>
-      </div>
-      <div
-        v-if="isCurrentRouteChildOfRoot($routesNames.menu.index)"
-        class="sidebar-submenu-items"
-      >
-        <NuxtLink
-          :to="{name: $routesNames.menu.plans}"
-          tag="div"
-          class="sidebar-submenu-item"
+            <BaseIcon
+              height="28"
+              width="28"
+            >
+              <CustomersIcon />
+            </BaseIcon>
+            <span>{{ $t('clients') }}</span>
+          </NuxtLink>
+          <NuxtLink
+            :to="{name: $routesNames.kitchen.settings}"
+            tag="div"
+            class="sidebar-submenu-item"
+          >
+            <BaseIcon
+              height="28"
+              width="29"
+            >
+              <KitchenSettingsIcon />
+            </BaseIcon>
+            <span>{{ $t('kitchenSetting') }}</span>
+          </NuxtLink>
+          <NuxtLink
+            :to="{name: $routesNames.kitchen.promoCodes}"
+            tag="div"
+            class="sidebar-submenu-item"
+          >
+            <BaseIcon
+              height="28"
+              width="28"
+            >
+              <PromoCodesIcon />
+            </BaseIcon>
+            <span>{{ $t('promoCodes') }}</span>
+          </NuxtLink>
+        </div>
+        <div
+          v-else-if="isCurrentRouteChildOfRoot($routesNames.orders.index)"
+          key="orders"
+          class="sidebar-submenu-items"
         >
-          <BaseIcon
-            height="28"
-            width="28"
+          <NuxtLink
+            :to="{name: $routesNames.orders.index}"
+            tag="div"
+            class="sidebar-submenu-item"
           >
-            <PlansIcon />
-          </BaseIcon>
-          <span>{{ $t('plans') }}</span>
-        </NuxtLink>
-        <NuxtLink
-          :to="{name: $routesNames.menu.recipes}"
-          tag="div"
-          class="sidebar-submenu-item"
+            <BaseIcon
+              height="28"
+              width="28"
+            >
+              <OrderIcon />
+            </BaseIcon>
+            <span>{{ $t('orders') }}</span>
+          </NuxtLink>
+          <NuxtLink
+            :to="{name: $routesNames.orders.feedback}"
+            tag="div"
+            class="sidebar-submenu-item"
+          >
+            <BaseIcon
+              height="28"
+              width="29"
+            >
+              <FeedbackIcon />
+            </BaseIcon>
+            <span>{{ $t('feedback') }}</span>
+          </NuxtLink>
+        </div>
+        <div
+          v-else-if="isCurrentRouteChildOfRoot($routesNames.settings.index)"
+          key="settings"
+          class="sidebar-submenu-items"
         >
-          <BaseIcon
-            height="28"
-            width="29"
+          <NuxtLink
+            :to="{name: $routesNames.settings.profile}"
+            tag="div"
+            class="sidebar-submenu-item"
           >
-            <MenuIcon />
-          </BaseIcon>
-          <span>{{ $t('recipes') }}</span>
-        </NuxtLink>
-        <NuxtLink
-          :to="{name: $routesNames.menu.ingredients}"
-          tag="div"
-          class="sidebar-submenu-item"
-        >
-          <BaseIcon
-            height="28"
-            width="28"
+            <BaseIcon
+              height="28"
+              width="28"
+            >
+              <ProfileSettingsIcon />
+            </BaseIcon>
+            <span>{{ $t('profileSettings') }}</span>
+          </NuxtLink>
+          <NuxtLink
+            :to="{name: $routesNames.settings.subscriptionAndPayment}"
+            tag="div"
+            class="sidebar-submenu-item"
           >
-            <IngredientIcon />
-          </BaseIcon>
-          <span>{{ $t('ingredients') }}</span>
-        </NuxtLink>
-      </div>
-      <div
-        v-if="isCurrentRouteChildOfRoot($routesNames.kitchen.index)"
-        class="sidebar-submenu-items"
-      >
-        <NuxtLink
-          :to="{name: $routesNames.kitchen.clients}"
-          tag="div"
-          class="sidebar-submenu-item"
-        >
-          <BaseIcon
-            height="28"
-            width="28"
+            <BaseIcon
+              height="28"
+              width="29"
+            >
+              <SubscriptionIcon />
+            </BaseIcon>
+            <span>{{ $t('subscriptionAndPayment') }}</span>
+          </NuxtLink>
+          <NuxtLink
+            :to="{name: $routesNames.settings.company}"
+            tag="div"
+            class="sidebar-submenu-item"
           >
-            <CustomersIcon />
-          </BaseIcon>
-          <span>{{ $t('plans') }}</span>
-        </NuxtLink>
-        <NuxtLink
-          :to="{name: $routesNames.kitchen.settings}"
-          tag="div"
-          class="sidebar-submenu-item"
-        >
-          <BaseIcon
-            height="28"
-            width="29"
+            <BaseIcon
+              height="28"
+              width="29"
+            >
+              <CompanyIcon />
+            </BaseIcon>
+            <span>{{ $t('companySettings') }}</span>
+          </NuxtLink>
+          <NuxtLink
+            :to="{name: $routesNames.settings.mailbox}"
+            tag="div"
+            class="sidebar-submenu-item"
           >
-            <KitchenSettingsIcon />
-          </BaseIcon>
-          <span>{{ $t('recipes') }}</span>
-        </NuxtLink>
-        <NuxtLink
-          :to="{name: $routesNames.kitchen.promoCodes}"
-          tag="div"
-          class="sidebar-submenu-item"
-        >
-          <BaseIcon
-            height="28"
-            width="28"
-          >
-            <PromoCodesIcon />
-          </BaseIcon>
-          <span>{{ $t('ingredients') }}</span>
-        </NuxtLink>
-      </div>
-      <div
-        v-if="isCurrentRouteChildOfRoot($routesNames.orders.index)"
-        class="sidebar-submenu-items"
-      >
-        <NuxtLink
-          :to="{name: $routesNames.orders.index}"
-          tag="div"
-          class="sidebar-submenu-item"
-        >
-          <BaseIcon
-            height="28"
-            width="28"
-          >
-            <OrderIcon />
-          </BaseIcon>
-          <span>{{ $t('orders') }}</span>
-        </NuxtLink>
-        <NuxtLink
-          :to="{name: $routesNames.orders.feedback}"
-          tag="div"
-          class="sidebar-submenu-item"
-        >
-          <BaseIcon
-            height="28"
-            width="29"
-          >
-            <FeedbackIcon />
-          </BaseIcon>
-          <span>{{ $t('feedback') }}</span>
-        </NuxtLink>
-      </div>
+            <BaseIcon
+              height="28"
+              width="29"
+            >
+              <MailboxSettingsIcon />
+            </BaseIcon>
+            <span>{{ $t('mailboxSettings') }}</span>
+          </NuxtLink>
+        </div>
+      </transition>
     </div>
   </aside>
 </template>
@@ -282,9 +350,13 @@
   import Vue from 'vue';
   import OrderIcon from '~/components/icons/OrderIcon.vue';
   import FeedbackIcon from '~/components/icons/FeedbackIcon.vue';
+  import ProfileSettingsIcon from '~/components/icons/ProfileSettingsIcon.vue';
+  import CompanyIcon from '~/components/icons/CompanyIcon.vue';
+  import SubscriptionIcon from '~/components/icons/SubscriptionIcon.vue';
+  import MailboxSettingsIcon from '~/components/icons/MailboxSettingsIcon.vue';
 
   export default Vue.extend({
-    components: { FeedbackIcon, OrderIcon },
+    components: { MailboxSettingsIcon, SubscriptionIcon, CompanyIcon, ProfileSettingsIcon, FeedbackIcon, OrderIcon },
     computed: {
       isAuthorized(): boolean {
         // TODO: tbd
