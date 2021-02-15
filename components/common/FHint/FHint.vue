@@ -1,9 +1,9 @@
 <template>
   <div
     :class="{'is-danger': isDanger}"
-    class="f-notification"
+    class="f-hint"
   >
-    <span class="f-notification-icon">
+    <span class="f-hint-icon">
       <BaseIcon>
         <component :is="iconComponent" />
       </BaseIcon>
@@ -60,33 +60,33 @@
   @import '~assets/styles/utils/variables';
   @import '~assets/styles/utils/mixins';
 
-  $notification-width-small: 338px;
-  $notification-width-medium: 400px;
-  $notification-width-large: 552px;
-  $notification-padding-left: 44px;
+  $hint-width-small: 338px;
+  $hint-width-medium: 400px;
+  $hint-width-large: 552px;
+  $hint-padding-left: 44px;
 
-  .f-notification {
+  .f-hint {
     position: relative;
-    width: $notification-width-medium;
-    padding: $building-unit $building-unit $building-unit $notification-padding-left;
+    width: $hint-width-medium;
+    padding: $building-unit $building-unit $building-unit $hint-padding-left;
     @include font-size(5);
     background-color: rgba($aqua, 0.07);
     border: solid 1px rgba($aqua-dark, 0.42);
     border-radius: $border-radius-small;
 
     &.is-medium {
-      width: $notification-width-large;
+      width: $hint-width-large;
     }
 
     &.is-large {
-      width: $notification-width-large;
+      width: $hint-width-large;
     }
 
     &.is-danger {
       background-color: rgba($red, 0.07);
       border-color: rgba($red, 0.42);
 
-      .f-notification-icon {
+      .f-hint-icon {
         color: $red;
       }
     }

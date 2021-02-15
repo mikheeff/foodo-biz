@@ -267,11 +267,8 @@
 
 <script lang="ts">
   import Vue from 'vue';
-  import SidebarSubmenuItem from '~/components/Sidebar/SidebarSubmenuItem/SidebarSubmenuItem.vue';
-  import SubscriptionIcon from '~/components/icons/SubscriptionIcon.vue';
 
   export default Vue.extend({
-    components: { SubscriptionIcon, SidebarSubmenuItem },
     data() {
       return {
         isSubmenuExpanded: true,

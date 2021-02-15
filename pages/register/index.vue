@@ -59,13 +59,13 @@
             @keydown.native.enter="signUp"
             @blur="$v.password.$touch()"
           >
-            <template slot="notification">
-              <FNotification
+            <template slot="hint">
+              <FHint
                 class="confirm-password-help is-large"
                 :icon="IconType.LOCK_ICON"
               >
                 {{ $t('signUpConfirmPasswordHelp') }}
-              </FNotification>
+              </FHint>
             </template>
           </FInput>
           <template

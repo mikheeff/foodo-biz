@@ -38,10 +38,10 @@
     </span>
     <transition name="opacity">
       <div
-        v-if="$slots.notification && isFocused"
-        class="notification-container"
+        v-if="$slots.hint && isFocused"
+        class="hint-container"
       >
-        <slot name="notification" />
+        <slot name="hint" />
       </div>
     </transition>
   </div>
@@ -173,7 +173,7 @@
       }
     }
 
-    .notification-container {
+    .hint-container {
       position: absolute;
       left: calc(100% + #{$building-unit-x1_5});
       top: 4px;
