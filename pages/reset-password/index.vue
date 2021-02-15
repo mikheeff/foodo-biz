@@ -1,14 +1,16 @@
 <template>
   <div class="page auth-page reset-password-page">
-    <NuxtLink
-      class="is-breadcrumb is-icon"
-      :to="$routesNames.login"
-    >
-      <BaseIcon>
-        <ArrowLeftIcon />
-      </BaseIcon>
-      {{ $t('back') }}
-    </NuxtLink>
+    <div class="breadcrumb-container">
+      <NuxtLink
+        class="is-breadcrumb is-icon"
+        :to="$routesNames.login"
+      >
+        <BaseIcon>
+          <ArrowLeftIcon />
+        </BaseIcon>
+        {{ $t('back') }}
+      </NuxtLink>
+    </div>
     <div
       v-if="!isSucceed"
       class="auth-page-container"

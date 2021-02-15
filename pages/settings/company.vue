@@ -1,11 +1,17 @@
 <template>
-  <NuxtChild />
+  <div>
+    Company Settings
+  </div>
 </template>
 
 <script lang="ts">
   import Vue from 'vue';
 
   export default Vue.extend({
-    name: 'Home',
+    name: 'CompanySettings',
   });
 </script>
+
+<style lang="scss" scoped>
+
+</style>

@@ -21,6 +21,17 @@ const config: NuxtConfig = {
   },
 
   router: {
+    // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+    extendRoutes(routes) {
+      routes.push(
+        {
+          path: '/',
+          redirect: 'home',
+        },
+      );
+    },
+    linkActiveClass: 'is-active',
+    linkExactActiveClass: 'is-exact-active',
     // middleware: 'auth',
   },
 
@@ -100,7 +111,7 @@ const config: NuxtConfig = {
     /*
      ** You can extend webpack config here
      */
-    extend (config, ctx) {
+    extend(config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient && config.module) {
         config.module.rules.push({

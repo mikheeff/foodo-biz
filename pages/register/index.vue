@@ -88,7 +88,7 @@
             class="has-icon-right"
             :is-danger="$v.confirmPassword.$error"
             :icon-right="IconType.EYE_ICON"
-            :is-icon-right-clickable="Boolean(password)"
+            :is-icon-right-clickable="Boolean(confirmPassword)"
             :placeholder="$t('signUpConfirmPasswordLabel')"
             @keydown.native.enter="signUp"
             @blur="$v.confirmPassword.$touch()"
@@ -142,7 +142,7 @@
               path="signUpPolitics"
               tag="p"
             >
-              <NuxtLink :to="$routesNames.home">
+              <NuxtLink :to="$routesNames.home.index">
                 {{ $t('signUpPoliticsLink') }}
               </NuxtLink>
             </i18n>

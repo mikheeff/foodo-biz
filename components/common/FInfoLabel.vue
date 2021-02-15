@@ -3,17 +3,16 @@
     <span class="f-info-label-text">
       <slot />
     </span>
-    <BTooltip
-      position="is-right"
+    <FTooltip
       multilined
-      :label="tooltipText"
+      :text="tooltipText"
     >
       <span class="f-info-label-icon">
         <BaseIcon>
           <InfoIcon />
         </BaseIcon>
       </span>
-    </BTooltip>
+    </FTooltip>
   </div>
 </template>
 

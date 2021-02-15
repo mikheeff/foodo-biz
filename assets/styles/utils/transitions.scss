@@ -24,3 +24,17 @@
   margin-top: 0!important;
   margin-bottom: 0!important;
 }
+
+.fade-horizontal-enter-active, .fade-horizontal-leave-active {
+  transition: .2s;
+}
+
+.fade-horizontal-enter, .fade-horizontal-leave-to {
+  overflow: hidden;
+  opacity: 0;
+  width: 0!important;
+  padding-top: 0!important;
+  padding-bottom: 0!important;
+  margin-top: 0!important;
+  margin-bottom: 0!important;
+}

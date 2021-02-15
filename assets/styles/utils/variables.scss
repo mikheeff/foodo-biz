@@ -2,13 +2,16 @@
 $white: #ffffff;
 $black: #000000;
 
-$gray: #6c6d7b;
+$gray-42: #2a2b35;
+$gray-53: #35363c;
 $gray-dark: #585967;
+$gray: #6c6d7b;
 $gray-light: #a1a2aa;
 $gray-190: #bebec7;
 $gray-193: #c1c1c8;
 $gray-211: #d3d3da;
 $gray-231: #e7e7ec;
+$gray-233: #e9f1f1;
 $gray-239: #efeff3;
 $gray-249: #f9f9fc;
 $red: #ee4540;
@@ -27,6 +30,8 @@ $building-unit-x4: $building-unit * 4; // 56px
 $building-unit-x5: $building-unit * 5; // 70px
 $building-unit-x6: $building-unit * 6; // 84px
 $building-unit-x7: $building-unit * 7; // 98px
+$building-unit-x8: $building-unit * 8; // 112px
+$building-unit-x9: $building-unit * 9; // 126px
 $building-unit-x10: $building-unit * 10; // 140px
 
 // utils
@@ -34,6 +39,10 @@ $border-radius: $building-unit;
 $border-radius-small: $building-unit_x0_5;
 $default-icon-size: 16px;
 $login-container-width: 530px;
+
+// shadows
+$shadow-1: 0 2px 4px 0 rgba($gray-42, 0.35);
+$shadow-2: 1px 0 2px 0 rgba($gray-190, 0.35);
 
 //typography
 
@@ -43,6 +52,7 @@ $lh-2: 38px;
 $lh-3: 38px;
 $lh-4: 28px;
 $lh-5: 24px;
+$lh-6: 20px;
 
 // font-sizes
 $head-1: 42px;
@@ -50,6 +60,7 @@ $head-2: 27px;
 $head-3: 27px;
 $head-4: 19px;
 $head-5: 17px;
+$head-6: 15px;
 
 // font-weights
 $font-weight-extra-light: 200;
@@ -66,6 +77,7 @@ $letter-spacing-2: -0.6px;
 $letter-spacing-3: -0.6px;
 $letter-spacing-4: -0.1px;
 $letter-spacing-5: -0.4px;
+$letter-spacing-6: -0.1px;
 
 // headline
 $head-font-list:
@@ -98,6 +110,12 @@ $head-font-list:
     lineHeight: $lh-5,
     fontWeight: $font-weight-medium,
     letterSpacing: $letter-spacing-5,
+  ),
+  (
+    fontSize: $head-6,
+    lineHeight: $lh-6,
+    fontWeight: $font-weight-medium,
+    letterSpacing: $letter-spacing-6,
   );
 
 // transitions
