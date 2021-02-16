@@ -49,7 +49,7 @@ const config: NuxtConfig = {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    '@nuxtjs/auth',
+    '@nuxtjs/auth-next',
     '@nuxtjs/axios',
     '@nuxt/content',
     'nuxt-i18n',
@@ -82,6 +82,10 @@ const config: NuxtConfig = {
   loading: {
     color: 'red',
     height: '5px',
+  },
+
+  axios: {
+    baseURL: 'http://api.linboard.online',
   },
 
   // https://auth.nuxtjs.org/guide

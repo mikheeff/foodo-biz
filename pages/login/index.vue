@@ -128,6 +128,8 @@
           return;
         }
 
+        this.$store.dispatch('LOGIN', { email: this.email, password: this.password });
+
         this.$router.push({ name: this.$routesNames.home.index });
       },
     },
