@@ -20,6 +20,17 @@ module.exports = {
     'space-before-function-paren': ['error', 'never'],
     'no-undef': 'off',
     'comma-dangle': ['error', 'always-multiline'],
+    '@typescript-eslint/naming-convention': [
+      'error',
+      {
+        selector: 'interface',
+        format: ['PascalCase'],
+        custom: {
+          regex: '^I[A-Z]',
+          match: true,
+        },
+      },
+    ],
   },
   overrides: [
     {

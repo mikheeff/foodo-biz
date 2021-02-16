@@ -75,6 +75,7 @@
 
     &-title {
       margin-left: $building-unit;
+      user-select: none;
       white-space: nowrap;
     }
 

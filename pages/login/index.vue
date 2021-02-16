@@ -109,6 +109,7 @@
   import Vue from 'vue';
   import { email, required } from 'vuelidate/lib/validators';
   import { IconType } from '~/models/enums/IconType';
+  import { LOGIN } from '~/store/action-types';
 
   export default Vue.extend({
     name: 'Login',
@@ -128,9 +129,10 @@
           return;
         }
 
-        this.$store.dispatch('LOGIN', { email: this.email, password: this.password });
-
-        this.$router.push({ name: this.$routesNames.home.index });
+        this.$store.dispatch(LOGIN, { email: this.email, password: this.password })
+          .then(() => {
+            this.$router.push({ name: this.$routesNames.home.index });
+          });
       },
     },
     validations: {

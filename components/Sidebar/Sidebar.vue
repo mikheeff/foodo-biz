@@ -41,7 +41,7 @@
             <SidebarMenuItem :route-name="$routesNames.settings.index">
               <SettingsIcon />
             </SidebarMenuItem>
-            <SidebarMenuItem :route-name="$routesNames.login">
+            <SidebarMenuItem @click.native="logout">
               <ExitIcon />
             </SidebarMenuItem>
           </div>
@@ -267,6 +267,7 @@
 
 <script lang="ts">
   import Vue from 'vue';
+  import { LOGOUT } from '~/store/action-types';
 
   export default Vue.extend({
     data() {
@@ -289,6 +290,9 @@
       },
       toggleSidebarSubmenu() {
         this.isSubmenuExpanded = !this.isSubmenuExpanded;
+      },
+      logout() {
+        this.$store.dispatch(LOGOUT);
       },
     },
     meta: {

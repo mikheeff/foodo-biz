@@ -1,5 +1,6 @@
 <template>
-  <NuxtLink
+  <component
+    :is="routeName ? 'NuxtLink' : 'div'"
     tag="div"
     class="sidebar-menu-item"
     :to="{name: routeName}"
@@ -16,7 +17,7 @@
     >
       {{ title }}
     </span>
-  </NuxtLink>
+  </component>
 </template>
 
 <script lang="ts">
@@ -26,7 +27,7 @@
     props: {
       routeName: {
         type: String,
-        required: true,
+        default: '',
       },
       title: {
         type: String,
@@ -65,6 +66,8 @@
 
     &-title {
       @include font-size(6);
+
+      user-select: none;
     }
 
     & + & {

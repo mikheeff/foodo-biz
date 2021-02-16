@@ -7,5 +7,6 @@
 
   export default Vue.extend({
     name: 'Menu',
+    middleware: ['auth'],
   });
 </script>
