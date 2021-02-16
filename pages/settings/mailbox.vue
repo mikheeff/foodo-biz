@@ -11,7 +11,3 @@
     name: 'MailboxSettings',
   });
 </script>
-
-<style lang="scss" scoped>
-
-</style>

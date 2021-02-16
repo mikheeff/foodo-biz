@@ -23,6 +23,7 @@ $input-danger-box-shadow-color: rgba($red, 0.42);
 }
 
 .help {
-  margin-top: $building-unit-x0_5;
   @include font-size(5);
+
+  margin-top: $building-unit-x0_5;
 }

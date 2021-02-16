@@ -9,6 +9,7 @@
     "generate": "nuxt-ts generate",
     "lint": "eslint --ext .js,.vue,.ts --ignore-path .gitignore .",
     "lintfix": "eslint --fix --ext .js,.vue,.ts --ignore-path .gitignore .",
+    "stylelintfix": "stylelint './components', './assets/styles' --fix",
     "test": "jest"
   },
   "dependencies": {
@@ -32,6 +33,7 @@
     "@nuxtjs/eslint-config-typescript": "^5.0.0",
     "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/style-resources": "^1.0.0",
+    "@nuxtjs/stylelint-module": "^4.0.0",
     "@vue/test-utils": "^1.1.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
@@ -47,6 +49,10 @@
     "pug-plain-loader": "^1.0.0",
     "sass": "^1.29.0",
     "sass-loader": "^10.1.0",
+    "stylelint": "^13.10.0",
+    "stylelint-config-sass-guidelines": "^8.0.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-scss": "^3.19.0",
     "vue-jest": "^3.0.4"
   }
 }

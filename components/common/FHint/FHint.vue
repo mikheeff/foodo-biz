@@ -66,13 +66,14 @@
   $hint-padding-left: 44px;
 
   .f-hint {
-    position: relative;
-    width: $hint-width-medium;
-    padding: $building-unit $building-unit $building-unit $hint-padding-left;
     @include font-size(5);
+
     background-color: rgba($aqua, 0.07);
     border: solid 1px rgba($aqua-dark, 0.42);
     border-radius: $border-radius-small;
+    padding: $building-unit $building-unit $building-unit $hint-padding-left;
+    position: relative;
+    width: $hint-width-medium;
 
     &.is-medium {
       width: $hint-width-large;
@@ -92,8 +93,9 @@
     }
 
     &-icon {
-      color: $aqua-dark;
       @include absolute-y-center;
+
+      color: $aqua-dark;
       left: $building-unit;
     }
   }

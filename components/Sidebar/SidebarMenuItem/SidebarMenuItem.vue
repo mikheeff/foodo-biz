@@ -43,15 +43,15 @@
   $menu-item-width: 82px;
 
   .sidebar-menu-item {
-    cursor: pointer;
-    transition: $transition-default;
-    padding: $building-unit $building-unit_x0_5;
-    width: $menu-item-width;
+    align-items: center;
     border-radius: $building-unit-x1_5;
     color: $gray-233;
+    cursor: pointer;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    padding: $building-unit $building-unit_x0_5;
+    transition: $transition-default;
+    width: $menu-item-width;
 
     svg:not(:only-child) {
       margin-bottom: $building-unit;
@@ -59,8 +59,8 @@
 
     &.is-active,
     &:hover {
-      color: $white;
       background-color: rgba($gray-53, 0.42);
+      color: $white;
     }
 
     &-title {

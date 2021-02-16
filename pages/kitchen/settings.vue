@@ -11,7 +11,3 @@
     name: 'KitchenSetting',
   });
 </script>
-
-<style lang="scss" scoped>
-
-</style>

@@ -146,10 +146,9 @@
 </script>
 
 <style lang="scss" scoped>
-@import '~assets/styles/utils/variables';
+  @import '~assets/styles/utils/variables';
 
   .login-page {
-
     .app-name {
       color: $aqua-dark;
     }

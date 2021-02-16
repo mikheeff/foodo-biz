@@ -1,40 +1,45 @@
 // Vue transition classes
 
 // opacity
-.opacity-enter-active, .opacity-leave-active {
-  transition: opacity .2s;
+.opacity-enter-active,
+.opacity-leave-active {
+  transition: opacity 0.2s;
 }
 
-.opacity-enter, .opacity-leave-to {
+.opacity-enter,
+.opacity-leave-to {
   opacity: 0;
 }
-
 
 // fade
-.fade-vertical-enter-active, .fade-vertical-leave-active {
-  transition: .2s;
+.fade-vertical-enter-active,
+.fade-vertical-leave-active {
+  transition: 0.2s;
 }
 
-.fade-vertical-enter, .fade-vertical-leave-to {
-  overflow: hidden;
+.fade-vertical-enter,
+.fade-vertical-leave-to {
+  height: 0 !important;
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
   opacity: 0;
-  height: 0!important;
-  padding-top: 0!important;
-  padding-bottom: 0!important;
-  margin-top: 0!important;
-  margin-bottom: 0!important;
-}
-
-.fade-horizontal-enter-active, .fade-horizontal-leave-active {
-  transition: .2s;
-}
-
-.fade-horizontal-enter, .fade-horizontal-leave-to {
   overflow: hidden;
+  padding-bottom: 0 !important;
+  padding-top: 0 !important;
+}
+
+.fade-horizontal-enter-active,
+.fade-horizontal-leave-active {
+  transition: 0.2s;
+}
+
+.fade-horizontal-enter,
+.fade-horizontal-leave-to {
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
   opacity: 0;
-  width: 0!important;
-  padding-top: 0!important;
-  padding-bottom: 0!important;
-  margin-top: 0!important;
-  margin-bottom: 0!important;
+  overflow: hidden;
+  padding-bottom: 0 !important;
+  padding-top: 0 !important;
+  width: 0 !important;
 }

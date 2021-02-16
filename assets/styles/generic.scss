@@ -1,8 +1,9 @@
 $auth-button-width: 292px;
 
 body {
-  color: $gray;
   @include font-size(4);
+
+  color: $gray;
 }
 
 .page {
@@ -33,8 +34,9 @@ a {
 
   svg {
     @include absolute-y-center;
-    right: 100%;
+
     margin-right: $link-icon-margin-right;
+    right: 100%;
   }
 }
 

@@ -144,8 +144,8 @@
 
       .email-success-icon {
         background: url('~assets/icons/illustrations-email.svg');
-        width: $email-success-icon-width;
         height: $email-success-icon-height;
+        width: $email-success-icon-width;
       }
     }
   }

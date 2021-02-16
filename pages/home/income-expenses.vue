@@ -11,7 +11,3 @@
     name: 'IncomeAndExpenses',
   });
 </script>
-
-<style lang="scss" scoped>
-
-</style>

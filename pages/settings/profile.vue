@@ -11,7 +11,3 @@
     name: 'ProfileSetting',
   });
 </script>
-
-<style lang="scss" scoped>
-
-</style>

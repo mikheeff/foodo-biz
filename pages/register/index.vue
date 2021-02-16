@@ -234,10 +234,11 @@
 
     .site-info-label {
       @include absolute-y-center;
+
+      color: $gray-dark;
+      font-weight: $font-weight-extra-bold;
       left: 100%;
       margin-left: $building-unit-x1_5;
-      font-weight: $font-weight-extra-bold;
-      color: $gray-dark;
     }
   }
 </style>
