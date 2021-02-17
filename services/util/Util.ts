@@ -28,4 +28,13 @@ export default class Util {
     // TODO: should come from ENV VARIABLES
     return `http://api.linboard.online/api/${url}`;
   }
+
+  /**
+   * Returns deep cloned object
+   * @param {} obj
+   * @returns {}
+   */
+  public static getClonedObject<T>(obj: T): T {
+    return JSON.parse(JSON.stringify(obj));
+  }
 }

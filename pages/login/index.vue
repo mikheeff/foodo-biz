@@ -42,26 +42,30 @@
         </FField>
         <FField
           class="password-field"
-          :is-danger="$v.password.$error"
+          :is-danger="$v.password.$error || isWrongCredentials"
           :label="$t('password')"
         >
           <FInput
             v-model="password"
             type="password"
             class="has-icon-right"
-            :is-danger="$v.password.$error"
+            :is-danger="$v.password.$error || isWrongCredentials"
             :icon-right="IconType.EYE_ICON"
             :is-icon-right-clickable="Boolean(password)"
             :placeholder="$t('passwordPlaceholder')"
+            @input="resetLoginError"
             @keydown.native.enter="signIn"
             @blur="$v.password.$touch()"
           />
           <template
-            v-if="$v.password.$error"
+            v-if="$v.password.$error || isWrongCredentials"
             slot="message"
           >
             <p v-if="!$v.password.required">
               {{ $t('required') }}
+            </p>
+            <p v-if="isWrongCredentials">
+              {{ $t('wrongPasswordOrEmail') }}
             </p>
           </template>
         </FField>
@@ -110,6 +114,8 @@
   import { email, required } from 'vuelidate/lib/validators';
   import { IconType } from '~/models/enums/IconType';
   import { LOGIN } from '~/store/action-types';
+  import { LOGIN_IS_WRONG_CREDENTIALS } from '~/store/getter-types';
+  import { UPDATE_LOGIN_ERROR } from '~/store/mutation-types';
 
   export default Vue.extend({
     name: 'Login',
@@ -120,6 +126,11 @@
         isRememberMe: false,
         IconType,
       };
+    },
+    computed: {
+      isWrongCredentials(): boolean {
+        return this.$store.getters[LOGIN_IS_WRONG_CREDENTIALS];
+      },
     },
     methods: {
       signIn() {
@@ -133,6 +144,9 @@
           .then(() => {
             this.$router.push({ name: this.$routesNames.home.index });
           });
+      },
+      resetLoginError() {
+        this.$store.commit(UPDATE_LOGIN_ERROR, null);
       },
     },
     validations: {

@@ -1,15 +1,19 @@
-import { GetterTree, MutationTree, ActionTree } from 'vuex';
+import { ActionTree, GetterTree, MutationTree } from 'vuex';
+import { AxiosError } from 'axios';
 import {
   IS_AUTHORIZED,
-  LOGIN_ERROR, REGISTRATION_COMPANY_NAME,
+  LOGIN_IS_WRONG_CREDENTIALS,
+  REGISTRATION_COMPANY_NAME,
   REGISTRATION_CONFIRM_PASSWORD,
   REGISTRATION_EMAIL,
   REGISTRATION_PASSWORD,
   TOKEN,
 } from '~/store/getter-types';
 import {
+  RESET_REGISTRATION_STATE,
   UPDATE_LOGIN_ERROR,
-  UPDATE_LOGIN_IS_LOADING, UPDATE_REGISTRATION_COMPANY_NAME,
+  UPDATE_LOGIN_IS_LOADING,
+  UPDATE_REGISTRATION_COMPANY_NAME,
   UPDATE_REGISTRATION_CONFIRM_PASSWORD,
   UPDATE_REGISTRATION_EMAIL,
   UPDATE_REGISTRATION_HAS_ERROR,
@@ -21,6 +25,8 @@ import { LOGIN, LOGOUT, REGISTER_USER } from '~/store/action-types';
 import { IError } from '~/models/interfaces/IError';
 import AuthService from '~/services/AuthService';
 import { IRegisterPayload } from '~/models/interfaces/user/IRegisterPayload';
+import Util from '~/services/util/Util';
+import HttpStatusCode from '~/models/enums/StatusCode';
 
 interface ILoginState {
   email: string;
@@ -74,14 +80,15 @@ function getRegisterPayloadFromState(state: IRootState): IRegisterPayload {
 export const state = (): IRootState => ({
   isMobile: false,
   token: null,
-  loginState: { ...INITIAL_LOGIN_STATE },
-  registerState: { ...INITIAL_REGISTRATION_STATE },
+  loginState: Util.getClonedObject<ILoginState>({ ...INITIAL_LOGIN_STATE }),
+  registerState: Util.getClonedObject<IRegistrationState>({ ...INITIAL_REGISTRATION_STATE }),
 });
 
 export const getters: GetterTree<IRootState, IRootState> = {
   [TOKEN]: state => state.token,
   [IS_AUTHORIZED]: state => state.token !== null,
-  [LOGIN_ERROR]: state => state.loginState.loginError,
+  [LOGIN_IS_WRONG_CREDENTIALS]: ({ loginState: { loginError } }) =>
+    Boolean(loginError && loginError.status === HttpStatusCode.UNAUTHORIZED),
   [REGISTRATION_EMAIL]: state => state.registerState.email,
   [REGISTRATION_PASSWORD]: state => state.registerState.password,
   [REGISTRATION_CONFIRM_PASSWORD]: state => state.registerState.confirmPassword,
@@ -116,13 +123,26 @@ export const mutations: MutationTree<IRootState> = {
   [UPDATE_REGISTRATION_COMPANY_NAME](state, value: string) {
     state.registerState.companyName = value;
   },
+  [RESET_REGISTRATION_STATE](state) {
+    state.registerState = Util.getClonedObject<IRegistrationState>({ ...INITIAL_REGISTRATION_STATE });
+  },
 };
 
 export const actions: ActionTree<IRootState, IRootState> = {
   [LOGIN]({ commit }, { email, password }) {
     return this.$auth.loginWith('local', { data: { email, password } })
-      .then((res) => {
-        commit(UPDATE_TOKEN, res);
+      .catch(({ response }: AxiosError) => {
+        if (!response || !response.status) {
+          // todo: add generic error notification
+          return;
+        }
+
+        const error: IError = {
+          message: JSON.stringify(response.data),
+          status: response.status,
+        };
+
+        commit(UPDATE_LOGIN_ERROR, error);
       });
   },
   [REGISTER_USER]({ commit, state }) {

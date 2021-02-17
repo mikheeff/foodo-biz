@@ -37,6 +37,7 @@ export default {
   enter: 'Войти',
   noAccountQuestion: 'Нет учётной записи?',
   register: 'Зарегистрироваться',
+  wrongPasswordOrEmail: 'Неверный пароль или адрес эл. почты',
   // Reset password
   resetPasswordTitle: 'Восстановление пароля',
   resetPasswordSubtitle1: 'Укажите адрес электронной почты,',

@@ -37,6 +37,7 @@ export default {
   enter: 'Enter',
   noAccountQuestion: 'No account?',
   register: 'Sign up',
+  wrongPasswordOrEmail: 'Wrong password or email',
   // Reset password
   resetPasswordTitle: 'Password recovery',
   resetPasswordSubtitle1: 'Enter the email address,',

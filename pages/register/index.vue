@@ -184,6 +184,7 @@
     REGISTRATION_PASSWORD,
   } from '~/store/getter-types';
   import {
+    RESET_REGISTRATION_STATE,
     UPDATE_REGISTRATION_COMPANY_NAME,
     UPDATE_REGISTRATION_CONFIRM_PASSWORD,
     UPDATE_REGISTRATION_EMAIL,
@@ -204,6 +205,9 @@
       password: Util.mapTwoWay<string>(REGISTRATION_PASSWORD, UPDATE_REGISTRATION_PASSWORD),
       confirmPassword: Util.mapTwoWay<string>(REGISTRATION_CONFIRM_PASSWORD, UPDATE_REGISTRATION_CONFIRM_PASSWORD),
       companyName: Util.mapTwoWay<string>(REGISTRATION_COMPANY_NAME, UPDATE_REGISTRATION_COMPANY_NAME),
+    },
+    destroyed() {
+      this.$store.commit(RESET_REGISTRATION_STATE);
     },
     methods: {
       signUp() {
