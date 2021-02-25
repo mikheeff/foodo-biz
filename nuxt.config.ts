@@ -97,7 +97,7 @@ const config: NuxtConfig = {
           property: 'access_token',
         },
         user: {
-          property: false
+          property: false,
         },
         endpoints: {
           login: {
@@ -106,7 +106,6 @@ const config: NuxtConfig = {
             propertyName: 'access_token',
           },
           logout: { url: '/auth/logout', method: 'post' },
-          // user: false,
           user: { url: '/auth/user', method: 'get' },
         },
       },

@@ -80,6 +80,7 @@ function getRegisterPayloadFromState(state: IRootState): IRegisterPayload {
 export const state = (): IRootState => ({
   isMobile: false,
   token: null,
+  // TODO: implement functions approach
   loginState: Util.getClonedObject<ILoginState>({ ...INITIAL_LOGIN_STATE }),
   registerState: Util.getClonedObject<IRegistrationState>({ ...INITIAL_REGISTRATION_STATE }),
 });
