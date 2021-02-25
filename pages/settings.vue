@@ -7,5 +7,6 @@
 
   export default Vue.extend({
     name: 'Settings',
+    middleware: ['auth'],
   });
 </script>

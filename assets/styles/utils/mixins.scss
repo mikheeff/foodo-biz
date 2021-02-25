@@ -6,27 +6,24 @@
   top: 50%;
   transform: translateY(-50%);
 }
-
 @mixin absolute-x-center {
-  position: absolute;
   left: 50%;
+  position: absolute;
   transform: translateX(-50%);
 }
-
 @mixin absolute-xy-center {
+  left: 50%;
   position: absolute;
   top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%);
 }
 
 // fonts
 @mixin font-size($sizeIndex, $list: $head-font-list) {
   $font: nth($list, $sizeIndex);
-  font-size: map-get($font, fontSize) !important;
-  line-height: map-get($font, lineHeight);
-  font-weight: map-get($font, fontWeight);
-  letter-spacing: map-get($font, letterSpacing);
+
+  font-size: map-get($font, fontsize) !important;
+  font-weight: map-get($font, fontweight);
+  letter-spacing: map-get($font, letterspacing);
+  line-height: map-get($font, lineheight);
 }
-
-

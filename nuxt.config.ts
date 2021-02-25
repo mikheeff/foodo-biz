@@ -45,11 +45,12 @@ const config: NuxtConfig = {
   buildModules: [
     '@nuxt/typescript-build',
     '@nuxtjs/eslint-module',
+    '@nuxtjs/stylelint-module',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    '@nuxtjs/auth',
+    '@nuxtjs/auth-next',
     '@nuxtjs/axios',
     '@nuxt/content',
     'nuxt-i18n',
@@ -80,14 +81,24 @@ const config: NuxtConfig = {
   },
 
   loading: {
-    color: 'red',
-    height: '5px',
+    color: '#0e98a4',
+    height: '4px',
+  },
+
+  axios: {
+    baseURL: 'http://api.linboard.online/api',
   },
 
   // https://auth.nuxtjs.org/guide
   auth: {
     strategies: {
       local: {
+        token: {
+          property: 'access_token',
+        },
+        user: {
+          property: false,
+        },
         endpoints: {
           login: {
             url: '/auth/login',
@@ -95,10 +106,8 @@ const config: NuxtConfig = {
             propertyName: 'access_token',
           },
           logout: { url: '/auth/logout', method: 'post' },
-          user: { url: '/auth/user', method: 'get', propertyName: 'user' },
+          user: { url: '/auth/user', method: 'get' },
         },
-        tokenRequired: true,
-        tokenType: 'Bearer',
       },
     },
   },

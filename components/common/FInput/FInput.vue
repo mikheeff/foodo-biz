@@ -161,21 +161,22 @@
 
     .f-input-icon-right {
       @include absolute-y-center;
+
+      color: $gray-193;
       display: inline-flex;
       right: $control-padding-horizontal;
-      color: $gray-193;
       user-select: none;
 
       &.is-clickable {
         color: $aqua-dark;
-        pointer-events: auto;
         cursor: pointer;
+        pointer-events: auto;
       }
     }
 
     .hint-container {
-      position: absolute;
       left: calc(100% + #{$building-unit-x1_5});
+      position: absolute;
       top: 4px;
     }
   }

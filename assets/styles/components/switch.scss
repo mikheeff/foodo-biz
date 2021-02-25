@@ -8,11 +8,12 @@ $switch-label-padding-left: 16px;
   }
 
   input[type=checkbox] {
-    &:focus, &:active {
+    &:focus,
+    &:active {
       + .check {
         box-shadow: none;
 
-        &.is-elastic:before {
+        &.is-elastic::before {
           transform: none;
         }
       }

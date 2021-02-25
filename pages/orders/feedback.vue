@@ -11,7 +11,3 @@
     name: 'Feedback',
   });
 </script>
-
-<style lang="scss" scoped>
-
-</style>

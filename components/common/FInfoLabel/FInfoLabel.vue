@@ -36,25 +36,25 @@
   $info-icon-size: $building-unit-x2;
 
   .f-info-label {
-    left: 100%;
-    display: flex;
     color: $gray-dark;
+    display: flex;
+    left: 100%;
 
     &-text {
       margin-right: $building-unit;
     }
 
     &-icon {
-      display: flex;
       align-items: center;
-      justify-content: center;
-      color: $white;
-      width: $info-icon-size;
-      height: $info-icon-size;
-      transition: opacity $transition-default;
-      border-radius: $border-radius-small;
       background-color: $black;
+      border-radius: $border-radius-small;
+      color: $white;
+      display: flex;
+      height: $info-icon-size;
+      justify-content: center;
       opacity: 0.28;
+      transition: opacity $transition-default;
+      width: $info-icon-size;
 
       &:hover {
         opacity: 0.7;

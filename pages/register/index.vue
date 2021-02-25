@@ -176,22 +176,48 @@
   import Vue from 'vue';
   import { email, required, sameAs } from 'vuelidate/lib/validators';
   import { IconType } from '~/models/enums/IconType';
+  import Util from '~/services/util/Util';
+  import {
+    REGISTRATION_COMPANY_NAME,
+    REGISTRATION_CONFIRM_PASSWORD,
+    REGISTRATION_EMAIL,
+    REGISTRATION_PASSWORD,
+  } from '~/store/getter-types';
+  import {
+    RESET_REGISTRATION_STATE,
+    UPDATE_REGISTRATION_COMPANY_NAME,
+    UPDATE_REGISTRATION_CONFIRM_PASSWORD,
+    UPDATE_REGISTRATION_EMAIL,
+    UPDATE_REGISTRATION_PASSWORD,
+  } from '~/store/mutation-types';
+  import { REGISTER_USER } from '~/store/action-types';
 
   export default Vue.extend({
     name: 'Register',
     data() {
       return {
-        email: '',
-        password: '',
-        confirmPassword: '',
-        companyName: '',
         isAcceptPolitics: false,
         IconType,
       };
     },
+    computed: {
+      email: Util.mapTwoWay<string>(REGISTRATION_EMAIL, UPDATE_REGISTRATION_EMAIL),
+      password: Util.mapTwoWay<string>(REGISTRATION_PASSWORD, UPDATE_REGISTRATION_PASSWORD),
+      confirmPassword: Util.mapTwoWay<string>(REGISTRATION_CONFIRM_PASSWORD, UPDATE_REGISTRATION_CONFIRM_PASSWORD),
+      companyName: Util.mapTwoWay<string>(REGISTRATION_COMPANY_NAME, UPDATE_REGISTRATION_COMPANY_NAME),
+    },
+    destroyed() {
+      this.$store.commit(RESET_REGISTRATION_STATE);
+    },
     methods: {
       signUp() {
         this.$v.$touch();
+
+        if (this.$v.$invalid) {
+          return;
+        }
+
+        this.$store.dispatch(REGISTER_USER);
       },
     },
     validations: {
@@ -234,10 +260,11 @@
 
     .site-info-label {
       @include absolute-y-center;
+
+      color: $gray-dark;
+      font-weight: $font-weight-extra-bold;
       left: 100%;
       margin-left: $building-unit-x1_5;
-      font-weight: $font-weight-extra-bold;
-      color: $gray-dark;
     }
   }
 </style>

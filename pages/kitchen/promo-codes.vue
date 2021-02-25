@@ -11,7 +11,3 @@
     name: 'PromoCodes',
   });
 </script>
-
-<style lang="scss" scoped>
-
-</style>

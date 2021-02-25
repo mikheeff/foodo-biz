@@ -89,17 +89,17 @@
 
   .f-tooltip {
     ::v-deep .tooltip-content,
-    &:before {
+    &::before {
+      opacity: 0;
       transition: $transition-default;
       visibility: hidden;
-      opacity: 0;
     }
 
     &:hover {
       ::v-deep .tooltip-content,
-      &:before {
-        visibility: visible;
+      &::before {
         opacity: 1;
+        visibility: visible;
       }
     }
   }

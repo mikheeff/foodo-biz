@@ -56,12 +56,13 @@
   @import '~assets/styles/utils/mixins';
 
   .sidebar-submenu-item {
-    display: flex;
-    align-items: center;
-    transition: $transition-default;
-    cursor: pointer;
-    color: $gray;
     @include font-size(6);
+
+    align-items: center;
+    color: $gray;
+    cursor: pointer;
+    display: flex;
+    transition: $transition-default;
 
     &.is-active {
       color: $aqua-dark;
@@ -73,8 +74,9 @@
     }
 
     &-title {
-      white-space: nowrap;
       margin-left: $building-unit;
+      user-select: none;
+      white-space: nowrap;
     }
 
     svg {

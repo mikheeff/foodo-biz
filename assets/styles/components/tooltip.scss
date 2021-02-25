@@ -3,13 +3,14 @@ $tooltip-padding-top: 16px;
 .b-tooltip {
   .tooltip-content {
     @include font-size(5);
+
+    border-radius: $border-radius-small;
     box-shadow: none;
     padding: $tooltip-padding-top $building-unit-x1_5;
-    border-radius: $border-radius-small;
 
-    &:before {
-      border-top-width: $building-unit !important;
+    &::before {
       border-bottom-width: $building-unit !important;
+      border-top-width: $building-unit !important;
     }
   }
 

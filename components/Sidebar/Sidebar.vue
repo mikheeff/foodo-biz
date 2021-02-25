@@ -41,7 +41,7 @@
             <SidebarMenuItem :route-name="$routesNames.settings.index">
               <SettingsIcon />
             </SidebarMenuItem>
-            <SidebarMenuItem :route-name="$routesNames.login">
+            <SidebarMenuItem @click.native="logout">
               <ExitIcon />
             </SidebarMenuItem>
           </div>
@@ -267,6 +267,7 @@
 
 <script lang="ts">
   import Vue from 'vue';
+  import { LOGOUT } from '~/store/action-types';
 
   export default Vue.extend({
     data() {
@@ -289,6 +290,9 @@
       },
       toggleSidebarSubmenu() {
         this.isSubmenuExpanded = !this.isSubmenuExpanded;
+      },
+      logout() {
+        this.$store.dispatch(LOGOUT);
       },
     },
     meta: {
@@ -314,38 +318,38 @@
     display: flex;
 
     &-menu {
+      align-items: center;
+      background: linear-gradient(176deg, #12b8c6 15%, #0e98a4 89%);
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: flex-start;
-      width: $sidebar-menu-width;
       padding: $building-unit-x2_5 $building-unit-x0_5 $building-unit-x0_5;
-      background: linear-gradient(176deg, #12b8c6 15%, #0e98a4 89%);
+      width: $sidebar-menu-width;
 
       &-logo {
-        height: $logo-size;
-        width: $logo-size;
-        margin-bottom: $building-unit-x5;
         background: url('~assets/icons/logo.svg');
+        height: $logo-size;
+        margin-bottom: $building-unit-x5;
+        width: $logo-size;
       }
 
       &-navigation {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         flex-grow: 1;
+        justify-content: space-between;
       }
 
       &-item {
-        cursor: pointer;
-        transition: $transition-default;
-        padding: $building-unit $building-unit_x0_5;
-        width: $menu-item-width;
+        align-items: center;
         border-radius: $building-unit-x1_5;
         color: $gray-233;
+        cursor: pointer;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        padding: $building-unit $building-unit_x0_5;
+        transition: $transition-default;
+        width: $menu-item-width;
 
         svg:not(:only-child) {
           margin-bottom: $building-unit;
@@ -353,8 +357,8 @@
 
         &.is-active,
         &:hover {
-          color: $white;
           background-color: rgba($gray-53, 0.42);
+          color: $white;
         }
 
         &-title {
@@ -368,43 +372,43 @@
     }
 
     &-submenu {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      width: $sidebar-submenu-width;
       background-color: $white;
       box-shadow: $shadow-2;
+      display: flex;
+      flex-direction: column;
       padding: $submenu-padding;
-      transition: width .2s;
+      position: relative;
+      transition: width 0.2s;
+      width: $sidebar-submenu-width;
 
       .title {
-        line-height: $lh-5;
-        letter-spacing: -0.2px;
         font-weight: $font-weight-semi-bold;
+        letter-spacing: -0.2px;
+        line-height: $lh-5;
         margin-bottom: 0;
       }
 
       &-header {
+        align-items: center;
         display: flex;
         height: $building-unit-x9;
-        align-items: center;
       }
 
       &-expander {
-        transition: $transition-default;
-        top: $submenu-expander-top;
-        left: calc(100% - 3/4 * #{$submenu-expander-size});
-        position: absolute;
-        height: $submenu-expander-size;
-        width: $submenu-expander-size;
-        border-radius: 50%;
-        background-color: $white;
-        box-shadow: $shadow-1;
-        cursor: pointer;
-        color: $gray-193;
-        display: flex;
-        justify-content: center;
         align-items: center;
+        background-color: $white;
+        border-radius: 50%;
+        box-shadow: $shadow-1;
+        color: $gray-193;
+        cursor: pointer;
+        display: flex;
+        height: $submenu-expander-size;
+        justify-content: center;
+        left: calc(100% - 3 / 4 * #{$submenu-expander-size});
+        position: absolute;
+        top: $submenu-expander-top;
+        transition: $transition-default;
+        width: $submenu-expander-size;
 
         &-icon {
           transition: $transition-default;
