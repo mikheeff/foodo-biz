@@ -11,6 +11,7 @@ body {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  padding: $building-unit-x2_5 $building-unit-x2;
 }
 
 a {
@@ -42,7 +43,11 @@ a {
 
 .title {
   color: $gray-dark;
-  margin-bottom: 14px;
+  margin-bottom: $building-unit;
+}
+
+.is-marginless {
+  margin: 0 !important;
 }
 
 .auth-page {

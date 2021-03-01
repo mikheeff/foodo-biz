@@ -15,6 +15,7 @@ $border: $gray-190;
 $text-strong: $gray-dark;
 $link: $aqua-dark;
 $link-hover: $link;
+$link-invert: $gray-light;
 $danger: $red;
 
 // utils
@@ -26,12 +27,17 @@ $control-height: $building-unit-x4;
 $control-padding-horizontal: $building-unit;
 $control-padding-vertical: $building-unit;
 
+$button-background-color: $gray-231;
 $button-padding-vertical: $building-unit;
 $button-padding-horizontal: $building-unit_x2;
 $button-hover-color: $gray-dark;
+$button-border-color: transparent;
+$button-focus-border-color: $focus-border-color;
+$button-focus-box-shadow-size: $focus-shadow-size;
+$button-focus-box-shadow-color: $focus-shadow-color;
 
-$input-focus-box-shadow-size: 0 0 2px 0;
-$input-focus-border-color: rgba($aqua-dark, 0.21);
+$input-focus-box-shadow-size: $focus-shadow-size;
+$input-focus-border-color: $focus-border-color;
 $input-hover-border-color: $gray-190;
 $input-placeholder-color: $gray-light;
 
@@ -44,3 +50,18 @@ $tooltip-multiline-sizes: (small: 175px, medium: 370px, large: 470px);
 $tooltip-colors: ('primary': ($tooltip-dark, $tooltip-dark-invert));
 $tooltip-arrow-size: 16px;
 $tooltip-arrow-margin: $building-unit;
+
+$pagination-border-color: $button-border-color;
+$pagination-current-border-color: $button-border-color;
+$pagination-current-color: $text-strong;
+$pagination-current-background-color: $button-background-color;
+$pagination-disabled-background-color: transparent;
+$pagination-disabled-border-color: $button-border-color;
+$pagination-hover-color: $text-strong;
+$pagination-hover-border-color: $button-border-color;
+$pagination-color: $link-invert;
+$pagination-margin: 0;
+$pagination-item-margin: 0;
+$pagination-active-color: $text-strong;
+$pagination-active-border-color: $button-border-color;
+$pagination-focus-border-color: $button-border-color;

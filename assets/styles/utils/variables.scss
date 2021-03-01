@@ -39,6 +39,9 @@ $border-radius: $building-unit;
 $border-radius-small: $building-unit_x0_5;
 $default-icon-size: 16px;
 $login-container-width: 530px;
+$focus-shadow-size: 0 0 2px 0;
+$focus-shadow-color: rgba($aqua-dark, 0.42);
+$focus-border-color: rgba($aqua-dark, 0.21);
 
 // shadows
 $shadow-1: 0 2px 4px 0 rgba($gray-42, 0.35);
