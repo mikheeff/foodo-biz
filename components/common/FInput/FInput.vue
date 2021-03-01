@@ -27,12 +27,28 @@
       @focus="onFocus"
     />
     <span
+      v-if="iconLeft"
+      :class="{'is-clickable': isIconLeftClickable}"
+      class="f-input-icon is-left"
+      @click="iconLeftClick"
+    >
+      <BaseIcon
+        :width="isIconLeftLarge ? 28 : 16"
+        :height="isIconLeftLarge ? 28 : 16"
+      >
+        <component :is="iconLeftComponent" />
+      </BaseIcon>
+    </span>
+    <span
       v-if="iconRight"
       :class="{'is-clickable': isIconRightClickable}"
-      class="f-input-icon-right"
-      @click="iconClick"
+      class="f-input-icon is-right"
+      @click="iconRightClick"
     >
-      <BaseIcon>
+      <BaseIcon
+        :width="isIconRightLarge ? 28 : 16"
+        :height="isIconRightLarge ? 28 : 16"
+      >
         <component :is="iconRightComponent" />
       </BaseIcon>
     </span>
@@ -52,6 +68,7 @@
   import { IconType } from '~/models/enums/IconType';
   import { ICON_COMPONENT_MAP } from '~/services/maps/IconComponentMap';
   import EyeIcon from '~/components/icons/EyeIcon.vue';
+  import SearchIcon from '~/components/icons/SearchIcon.vue';
 
   enum InputType {
     TEXT = 'text',
@@ -59,7 +76,7 @@
   }
 
   export default Vue.extend({
-    components: { EyeIcon },
+    components: { EyeIcon, SearchIcon },
     props: {
       value: {
         type: [Number, String],
@@ -81,7 +98,23 @@
         type: String,
         default: '',
       },
+      iconLeft: {
+        type: String,
+        default: '',
+      },
       isIconRightClickable: {
+        type: Boolean,
+        default: false,
+      },
+      isIconLeftClickable: {
+        type: Boolean,
+        default: false,
+      },
+      isIconRightLarge: {
+        type: Boolean,
+        default: false,
+      },
+      isIconLeftLarge: {
         type: Boolean,
         default: false,
       },
@@ -104,6 +137,11 @@
 
         return iconComponent || '';
       },
+      iconLeftComponent(): string {
+        const iconComponent = ICON_COMPONENT_MAP[this.iconLeft as IconType];
+
+        return iconComponent || '';
+      },
     },
     methods: {
       onInput(value: string | number) {
@@ -117,12 +155,15 @@
         this.$emit('focus');
         this.isFocused = true;
       },
-      iconClick() {
+      iconRightClick() {
         if (this.type === InputType.PASSWORD) {
           this.togglePasswordVisibility();
         } else if (this.isIconRightClickable) {
           this.$emit('right-icon-click');
         }
+      },
+      iconLeftClick() {
+        this.$emit('left-icon-click');
       },
       togglePasswordVisibility() {
         this.isPasswordVisible = !this.isPasswordVisible;
@@ -151,21 +192,48 @@
   @import '~assets/styles/bulma/bulma-overrides-variables';
 
   .f-control {
+    display: flex;
     position: relative;
 
     &.has-icon-right {
       .f-input {
         padding-right: 2 * $control-padding-horizontal + $default-icon-size;
       }
+
+      &.is-large {
+        .f-input {
+          padding-right: 2 * $control-padding-horizontal + $large-icon-size;
+        }
+      }
     }
 
-    .f-input-icon-right {
+    &.has-icon-left {
+      .f-input {
+        padding-left: 2 * $control-padding-horizontal + $default-icon-size;
+      }
+
+      &.is-large {
+        .f-input {
+          padding-left: 2 * $control-padding-horizontal + $large-icon-size;
+        }
+      }
+    }
+
+    .f-input-icon {
       @include absolute-y-center;
 
       color: $gray-193;
       display: inline-flex;
-      right: $control-padding-horizontal;
+      transition: $transition-default;
       user-select: none;
+
+      &.is-right {
+        right: $control-padding-horizontal;
+      }
+
+      &.is-left {
+        left: $control-padding-horizontal;
+      }
 
       &.is-clickable {
         color: $aqua-dark;

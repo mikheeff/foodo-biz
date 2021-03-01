@@ -15,6 +15,8 @@
         <FPagination
           v-model="current"
           :total="total"
+          :search-value="search"
+          @search="search = $event"
         />
       </div>
       <div class="ingredients-page-table" />
@@ -31,6 +33,7 @@
       return {
         total: 30,
         current: 1,
+        search: '',
       };
     },
   });

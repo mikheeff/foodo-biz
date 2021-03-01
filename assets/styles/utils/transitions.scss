@@ -3,7 +3,7 @@
 // opacity
 .opacity-enter-active,
 .opacity-leave-active {
-  transition: opacity 0.2s;
+  transition: opacity $transition-default;
 }
 
 .opacity-enter,
@@ -14,7 +14,7 @@
 // fade
 .fade-vertical-enter-active,
 .fade-vertical-leave-active {
-  transition: 0.2s;
+  transition: $transition-default;
 }
 
 .fade-vertical-enter,
@@ -30,7 +30,7 @@
 
 .fade-horizontal-enter-active,
 .fade-horizontal-leave-active {
-  transition: 0.2s;
+  transition: $transition-default;
 }
 
 .fade-horizontal-enter,

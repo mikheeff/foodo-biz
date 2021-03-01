@@ -25,6 +25,7 @@
             type="email"
             :is-danger="$v.email.$error"
             :placeholder="$t('emailAddressPlaceholder')"
+            autocomplete="email"
             @keydown.native.enter="signIn"
             @blur="$v.email.$touch()"
           />
@@ -48,6 +49,7 @@
           <FInput
             v-model="password"
             type="password"
+            autocomplete="current-password"
             class="has-icon-right"
             :is-danger="$v.password.$error || isWrongCredentials"
             :icon-right="IconType.EYE_ICON"

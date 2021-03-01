@@ -134,7 +134,6 @@ const config: NuxtConfig = {
         });
       }
     },
-    friendlyErrors: false,
   },
 };
 
