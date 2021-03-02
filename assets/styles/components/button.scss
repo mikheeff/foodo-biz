@@ -49,4 +49,8 @@ $button-letter-spacing: -0.2px;
       background: $button-primary-gradient !important;
     }
   }
+
+  &.is-icon {
+    padding: $building_unit;
+  }
 }

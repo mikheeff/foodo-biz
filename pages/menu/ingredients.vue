@@ -8,9 +8,14 @@
     <div class="ingredients-page-content">
       <div class="ingredients-page-control-panel">
         <div class="control-panel-buttons">
-          <button class="button" />
-          <button class="button" />
-          <button class="button" />
+          <button class="button is-icon">
+            <BaseIcon
+              width="28"
+              height="28"
+            >
+              <PlusIcon />
+            </BaseIcon>
+          </button>
         </div>
         <FPagination
           v-model="current"
