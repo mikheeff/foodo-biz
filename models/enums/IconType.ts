@@ -3,4 +3,5 @@ export enum IconType {
   INFO_ICON = 'INFO_ICON',
   CROSS_ICON = 'CROSS_ICON',
   LOCK_ICON = 'LOCK_ICON',
+  SEARCH_ICON = 'SEARCH_ICON',
 }

@@ -20,6 +20,7 @@ module.exports = {
     'selector-no-qualifying-type': null,
     'scss/at-import-no-partial-leading-underscore': null,
     'selector-pseudo-element-no-unknown': null,
+    'selector-max-compound-selectors': null,
 
     // Custom
     indentation: [2, { baseIndentLevel: 1 }],

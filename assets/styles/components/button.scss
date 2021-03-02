@@ -4,19 +4,20 @@ $button-letter-spacing: -0.2px;
 .button {
   @include font-size(4);
 
-  background-color: $gray-231;
-  border: transparent;
+  border: 1px solid $button-border-color;
   font-weight: $font-weight-semi-bold;
   height: $building-unit-x4;
   letter-spacing: $button-letter-spacing;
-  transition: background $transition-default !important;
+  transition: $transition-default !important;
 
   &:hover {
     background-color: $gray-239;
+    border-color: $button-border-color;
   }
 
   &:active {
     background-color: $gray-211;
+    border-color: $button-border-color;
   }
 
   &[disabled],
@@ -47,5 +48,9 @@ $button-letter-spacing: -0.2px;
     &.is-disabled {
       background: $button-primary-gradient !important;
     }
+  }
+
+  &.is-icon {
+    padding: $building_unit;
   }
 }

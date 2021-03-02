@@ -1,0 +1,35 @@
+.pagination {
+  &:not(:last-child) {
+    margin-bottom: 0;
+  }
+
+  &:focus {
+    border-color: transparent;
+  }
+
+  .pagination-link {
+    @include font-size(4);
+
+    letter-spacing: $button-letter-spacing;
+    transition: $transition-default;
+
+    &[disabled] {
+      cursor: default;
+    }
+
+    &:active:not([disabled]) {
+      background-color: $button-background-color;
+      border-color: $button-border-color;
+      box-shadow: none;
+    }
+
+    &.pagination-previous,
+    &.pagination-next {
+      background-color: transparent !important;
+    }
+  }
+
+  .pagination-list {
+    flex-wrap: nowrap;
+  }
+}

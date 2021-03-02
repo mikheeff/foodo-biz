@@ -11,3 +11,9 @@
     name: 'Recipes',
   });
 </script>
+
+<style lang="scss" scoped>
+  @import '~assets/styles/utils/variables';
+  @import '~assets/styles/utils/mixins';
+
+</style>

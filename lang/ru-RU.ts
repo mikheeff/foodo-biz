@@ -21,7 +21,7 @@ export default {
   analytics: 'Аналитика',
   plans: 'Планы',
   recipes: 'Рецепты',
-  ingredients: 'Ингредиенты',
+  ingredients: 'Полуфабрикаты',
   clients: 'Клиенты',
   kitchenSetting: 'Настройки кухни',
   promoCodes: 'Промокоды',
