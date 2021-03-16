@@ -30,6 +30,12 @@ export default {
   subscriptionAndPayment: 'Subscription & Payment',
   companySettings: 'Company settings',
   mailboxSettings: 'Mailbox settings',
+  name: 'name',
+  gram: 'gram',
+  kcal: 'kcal',
+  proteins: 'proteins',
+  fat: 'fat',
+  carbs: 'carbs',
   // Login
   welcomeText: 'Please, enter your account using your email address and password.',
   passwordPlaceholder: 'Enter password',

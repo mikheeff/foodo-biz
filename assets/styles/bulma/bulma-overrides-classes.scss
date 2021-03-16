@@ -1,3 +1,5 @@
+$container-max-size: 1038px;
+
 .columns {
   margin-bottom: 0;
   margin-top: 0;
@@ -11,4 +13,9 @@
 
 .column {
   padding: 0 $building-unit;
+}
+
+.container {
+  max-width: $container-max-size;
+  width: $container-max-size;
 }

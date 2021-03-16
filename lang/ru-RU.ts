@@ -30,6 +30,12 @@ export default {
   subscriptionAndPayment: 'Подписка и оплата',
   companySettings: 'Настройки компании',
   mailboxSettings: 'Настройка почты',
+  name: 'наименование',
+  gram: 'грамм',
+  kcal: 'ккал',
+  proteins: 'белки',
+  fat: 'жиры',
+  carbs: 'углеводы',
   // Login
   welcomeText: 'Пожалуйста, войдите под своей учётной записью, используя ваш адрес электронной почты и пароль.',
   passwordPlaceholder: 'Введите пароль',
