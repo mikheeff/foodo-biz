@@ -1,8 +1,6 @@
 .b-checkbox {
   &.checkbox {
     input[type=checkbox] {
-      transition: background-image $transition-default;
-
       &:focus + .check {
         box-shadow: none;
       }
