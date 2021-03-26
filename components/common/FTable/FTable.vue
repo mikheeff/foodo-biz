@@ -8,6 +8,7 @@
             class="table-cell checkbox-cell"
           >
             <BCheckbox
+              class="table-cell-checkbox"
               :value="isAllChecked"
               @change.native="checkAll"
             />
@@ -205,6 +206,7 @@
       .table-cell-checkbox {
         margin-right: 0;
         width: 20px;
+        margin-top: $building-unit_x0_5;
       }
     }
   }
