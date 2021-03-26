@@ -159,6 +159,9 @@
   @import '~assets/styles/utils/variables';
   @import '~assets/styles/utils/mixins';
 
+  $checkbox-cell-width: 55px;
+  $checkbox-width: 20px;
+
   .f-table {
     .table {
       width: 100%;
@@ -200,12 +203,12 @@
       }
 
       &.checkbox-cell {
-        width: 55px;
+        width: $checkbox-cell-width;
       }
 
       .table-cell-checkbox {
         margin-right: 0;
-        width: 20px;
+        width: $checkbox-width;
         margin-top: $building-unit_x0_5;
       }
     }
