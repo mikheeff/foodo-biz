@@ -28,6 +28,8 @@ import { IRegisterPayload } from '~/models/interfaces/user/IRegisterPayload';
 import Util from '~/services/util/Util';
 import HttpStatusCode from '~/models/enums/StatusCode';
 
+export const namespaced = false;
+
 interface ILoginState {
   email: string;
   password: string;

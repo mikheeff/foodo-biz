@@ -27,6 +27,7 @@ $control-height: $building-unit-x4;
 $control-padding-horizontal: $building-unit;
 $control-padding-vertical: $building-unit;
 
+// button
 $button-background-color: $gray-231;
 $button-padding-vertical: $building-unit;
 $button-padding-horizontal: $building-unit_x2;
@@ -36,14 +37,17 @@ $button-focus-border-color: $focus-border-color;
 $button-focus-box-shadow-size: $focus-shadow-size;
 $button-focus-box-shadow-color: $focus-shadow-color;
 
+// input
 $input-focus-box-shadow-size: $focus-shadow-size;
 $input-focus-border-color: $focus-border-color;
 $input-hover-border-color: $gray-190;
 $input-placeholder-color: $gray-light;
 
+// switch
 $switch-width: 48px;
 $switch-padding: 2px;
 
+// tooltip
 $tooltip-dark: rgba($black, 0.7);
 $tooltip-dark-invert: $white;
 $tooltip-multiline-sizes: (small: 175px, medium: 370px, large: 470px);
@@ -51,6 +55,7 @@ $tooltip-colors: ('primary': ($tooltip-dark, $tooltip-dark-invert));
 $tooltip-arrow-size: 16px;
 $tooltip-arrow-margin: $building-unit;
 
+// pagination
 $pagination-border-color: $button-border-color;
 $pagination-current-border-color: $button-border-color;
 $pagination-current-color: $text-strong;
@@ -65,3 +70,9 @@ $pagination-item-margin: 0;
 $pagination-active-color: $text-strong;
 $pagination-active-border-color: $button-border-color;
 $pagination-focus-border-color: $button-border-color;
+
+// checkbox
+$checkbox-size: 20px;
+$checkbox-border-color: $gray-179;
+$checkbox-active-background-color: $gray-249;
+$checkbox-checkmark-color: $aqua-dark;

@@ -1,0 +1,20 @@
+.b-checkbox {
+  &.checkbox {
+    input[type=checkbox] {
+      &:focus + .check {
+        box-shadow: none;
+      }
+
+      &:checked + .check {
+        border-color: $gray-179;
+        background-image: url('~assets/icons/check.svg');
+      }
+    }
+
+    &:hover {
+      input[type=checkbox]:not(:disabled) + .check {
+        border-color: $gray-179;
+      }
+    }
+  }
+}

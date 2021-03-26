@@ -13,6 +13,8 @@
 @import '~bulma/sass/form/_all';
 @import '~bulma/sass/grid/_all';
 @import '~bulma/sass/elements/button';
+@import '~bulma/sass/elements/container';
+@import '~bulma/sass/elements/table';
 @import '~bulma/sass/components/pagination';
 
 // Import buefy styles
@@ -20,6 +22,8 @@
 @import '~buefy/src/scss/components/_switch';
 @import '~buefy/src/scss/components/_tooltip';
 @import '~buefy/src/scss/components/_pagination';
+@import '~buefy/src/scss/components/_table';
+@import '~buefy/src/scss/components/_checkbox';
 
 // project styles
 @import '~assets/styles/generic';

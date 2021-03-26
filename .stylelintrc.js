@@ -21,6 +21,7 @@ module.exports = {
     'scss/at-import-no-partial-leading-underscore': null,
     'selector-pseudo-element-no-unknown': null,
     'selector-max-compound-selectors': null,
+    'order/properties-alphabetical-order': null,
 
     // Custom
     indentation: [2, { baseIndentLevel: 1 }],
