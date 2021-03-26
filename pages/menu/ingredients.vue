@@ -29,6 +29,10 @@
           <FTable
             :data="ingredients"
             :columns="columns"
+            :checked-rows="selectedIngredients"
+            :track-by="row => row.title"
+            :is-row-checkable="row => row.title !== 'Рисовые блинчики' && row.title !== 'Вишневый джем'"
+            @check="updateSelectedIngredients($event)"
           />
         </div>
       </div>
@@ -39,8 +43,9 @@
 <script lang="ts">
   import Vue from 'vue';
   import { IIngredient } from '~/models/interfaces/ingredients/IIngredient';
-  import { INGREDIENTS } from '~/services/constants/getter-types';
+  import { INGREDIENTS, SELECTED_INGREDIENTS } from '~/services/constants/getter-types';
   import { GET_INGREDIENTS } from '~/services/constants/action-types';
+  import { UPDATE_SELECTED_INGREDIENTS } from '~/services/constants/mutation-types';
 
   export default Vue.extend({
     name: 'Ingredients',
@@ -86,9 +91,17 @@
       ingredients(): IIngredient[] {
         return this.$store.getters[INGREDIENTS];
       },
+      selectedIngredients(): IIngredient[] {
+        return this.$store.getters[SELECTED_INGREDIENTS];
+      },
     },
     created() {
       this.$store.dispatch(GET_INGREDIENTS);
+    },
+    methods: {
+      updateSelectedIngredients(ingredients: IIngredient[]) {
+        this.$store.commit(UPDATE_SELECTED_INGREDIENTS, ingredients);
+      },
     },
   });
 </script>
@@ -108,6 +121,7 @@
     &-control-panel {
       display: flex;
       justify-content: space-between;
+      margin-bottom: $building-unit_x2;
     }
   }
 </style>

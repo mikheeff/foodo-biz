@@ -45,6 +45,7 @@
               class="table-cell checkbox-cell"
             >
               <BCheckbox
+                class="table-cell-checkbox"
                 :value="isRowChecked(row)"
                 :disabled="!isRowCheckable(row)"
                 @click.native.prevent.stop="checkRow(row)"
@@ -107,12 +108,25 @@
     },
     computed: {
       isAllChecked(): boolean {
-        return false;
+        const validData = this.data.filter(row => this.isRowCheckable(row));
+
+        if (validData.length === 0) {
+          return false;
+        }
+
+        return validData.every(row => this.isRowChecked(row));
       },
     },
     methods: {
       checkAll() {
-        // todo: check all
+        const checkedUncheckableRows = this.data
+          .filter(row => !this.isRowCheckable(row) && this.isRowChecked(row));
+
+        const checkedRows = this.isAllChecked
+          ? [...checkedUncheckableRows]
+          : [...this.data.filter(row => this.isRowCheckable(row)), ...checkedUncheckableRows];
+
+        this.$emit('check', checkedRows);
       },
       sort(column: ITableColumn) {
         this.$emit('sort', column.field, this.isAscending ? SortingOrder.ASCENDING : SortingOrder.DESCENDING);
@@ -131,7 +145,7 @@
         }
 
         const newCheckedRows = this.isRowChecked(row)
-          ? this.checkedRows.filter(checkedRow => this.trackBy(checkedRow) === this.trackBy(row))
+          ? this.checkedRows.filter(checkedRow => this.trackBy(checkedRow) !== this.trackBy(row))
           : [...this.checkedRows, row];
 
         this.$emit('check', newCheckedRows);
@@ -145,6 +159,10 @@
   @import '~assets/styles/utils/mixins';
 
   .f-table {
+    .table {
+      width: 100%;
+    }
+
     .header-cell-container {
       display: flex;
       align-items: center;
@@ -163,11 +181,31 @@
     }
 
     .table-row:nth-child(even) {
-      background-color: rgba(211, 212, 222, 0.14);
+      background-color: rgba($gray-211-2, 0.14);
     }
 
     .table-cell {
+      height: $building-unit-x5;
       border-color: transparent;
+      padding: $building-unit_x0_5 $building-unit_x1_5 $building-unit_x0_5 0;
+      vertical-align: middle;
+
+      &:first-child {
+        padding-left: $building-unit;
+      }
+
+      &:last-child {
+        padding-right: $building-unit;
+      }
+
+      &.checkbox-cell {
+        width: 55px;
+      }
+
+      .table-cell-checkbox {
+        margin-right: 0;
+        width: 20px;
+      }
     }
   }
 </style>

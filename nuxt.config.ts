@@ -39,7 +39,7 @@ const config: NuxtConfig = {
   css: ['@/assets/styles/global.scss'],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
-  components: true,
+  components: [{ path: '~/components', global: 'dev' }],
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
