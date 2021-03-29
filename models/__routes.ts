@@ -14,7 +14,11 @@ export const routerPagesNames = {
   login: 'login',
   menu: {
     index: 'menu',
-    ingredients: 'menu-ingredients',
+    ingredients: {
+      index: 'menu-ingredients',
+      add: 'menu-ingredients-add',
+      edit: 'menu-ingredients-edit',
+    },
     plans: 'menu-plans',
     recipes: 'menu-recipes',
   },

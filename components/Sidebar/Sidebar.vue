@@ -128,7 +128,7 @@
               <MenuIcon />
             </SidebarSubmenuItem>
             <SidebarSubmenuItem
-              :route-name="$routesNames.menu.ingredients"
+              :route-name="$routesNames.menu.ingredients.index"
               :title="$t('ingredients')"
               :is-title-shown="isSubmenuExpanded"
             >
