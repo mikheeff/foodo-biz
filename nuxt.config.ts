@@ -35,6 +35,11 @@ const config: NuxtConfig = {
     // middleware: 'auth',
   },
 
+  pageTransition: {
+    name: 'opacity',
+    mode: 'out-in',
+  },
+
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: ['@/assets/styles/global.scss'],
 
